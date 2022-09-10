@@ -1,5 +1,25 @@
 {
   "files": {
+    "index.html": [
+      {
+        "id": "2efa9025-e9be-48d4-b3f7-6ec0f9572135",
+        "line": 4,
+        "version": 72,
+        "index": 42
+      },
+      {
+        "id": "f8b8317a-7324-4740-91e3-5cecf2f92a37",
+        "line": 13,
+        "version": 72,
+        "index": 411
+      },
+      {
+        "id": "4f23f7d4-3efb-4335-ab73-521861d427eb",
+        "line": 15,
+        "version": 72,
+        "index": 430
+      }
+    ],
     "src/AboutProduct.jsx": [
       {
         "id": "ae874c57-f32d-482c-a132-b85da38ca5ec",
