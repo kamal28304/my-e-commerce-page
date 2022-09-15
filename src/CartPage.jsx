@@ -4,7 +4,7 @@ import {getProductList} from "./Api"
 import { Link } from "react-router-dom"
 
 
-const dat=[{name:"ramesh"}]
+
 
 function CartPage(id){
   const [cartList ,setCartList]=useState([])
@@ -17,9 +17,11 @@ function CartPage(id){
 
   }, [id]);
   return (
-    <Link to="/" className="px-3 py-1 bg-gray-500">Back</Link>
+    
     <div className="p-5 sm:p-12 bg-gray-100 max-w-5xl ">
+      
     <div className="flex flex-col  justify-center p-5 bg-white" >
+  
   <CartList carts={cartList} />
     
 <div className="flex items-end justify-end flex-col mt-5">
@@ -42,6 +44,7 @@ function CartPage(id){
         <button className="px-4 py-2 bg-red-500 text-center my-3"> Procede to check out</button>
       </div>
       </div>
+      <Link to="/" className="px-3 py-1 bg-gray-500 mt-5 justify-center self-center">Back</Link>
   </div>
       </div>
     );
