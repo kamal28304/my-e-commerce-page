@@ -12,7 +12,7 @@ function Header({ productCount }) {
         <img className="w-32 " src="http://media.corporate-ir.net/media_files/IROL/17/176060/Oct18/Amazon%20logo.PNG" />
         <div className="flex flex-col items-center">
       <Link  to= "/CartPage" 
-        className="flex items-center justify-center text-5xl text-gray-500 hover:bg-indigo-300"> <HiShoppingBag /></Link>
+        className="flex items-center justify-center text-5xl text-gray-500 hover:bg-gray-700"> <HiShoppingBag /></Link>
           <span className="-m-7 text-white">{productCount}</span>
         </div>
       </div>

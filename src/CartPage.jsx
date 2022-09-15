@@ -44,7 +44,7 @@ function CartPage(id){
         <button className="px-4 py-2 bg-red-500 text-center my-3"> Procede to check out</button>
       </div>
       </div>
-      <Link to="/" className="px-3 py-1 bg-gray-500 mt-5 justify-center self-center">Back</Link>
+      <Link to="/" className="px-3 py-1 bg-gray-500 mt-5  self-center">Back</Link>
   </div>
       </div>
     );
