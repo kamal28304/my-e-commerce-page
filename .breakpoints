@@ -4,34 +4,34 @@
       {
         "id": "2efa9025-e9be-48d4-b3f7-6ec0f9572135",
         "line": 4,
-        "version": 72,
+        "version": 81,
         "index": 42
       },
       {
         "id": "f8b8317a-7324-4740-91e3-5cecf2f92a37",
-        "line": 13,
-        "version": 72,
-        "index": 411
+        "line": 8,
+        "version": 81,
+        "index": 217
       },
       {
         "id": "4f23f7d4-3efb-4335-ab73-521861d427eb",
-        "line": 15,
-        "version": 72,
-        "index": 430
+        "line": 8,
+        "version": 81,
+        "index": 217
       }
     ],
     "src/AboutProduct.jsx": [
       {
         "id": "ae874c57-f32d-482c-a132-b85da38ca5ec",
         "line": 3,
-        "version": 3284,
-        "index": 93
+        "version": 3434,
+        "index": 98
       },
       {
         "id": "5a3c01c0-ddaf-4648-b246-5ca085ac53b6",
         "line": 4,
-        "version": 3284,
-        "index": 134
+        "version": 3434,
+        "index": 139
       }
     ],
     "src/Api.jsx": [
@@ -44,18 +44,24 @@
     ],
     "src/CartPage.jsx": [
       {
+        "id": "b0ab3bfe-416e-406a-8d6e-0e72e9cbd7c9",
+        "line": 58,
+        "version": 2994,
+        "index": 1550
+      },
+      {
         "id": "5425e53d-f4c1-4eab-a930-f1ee470b9897",
-        "line": 41,
-        "version": 1796,
-        "index": 1051
+        "line": 59,
+        "version": 2994,
+        "index": 1628
       }
     ],
     "src/CartRow.jsx": [
       {
         "id": "f8d5e9c2-66b5-4023-9bd7-8c1fb879cb4d",
         "line": 5,
-        "version": 931,
-        "index": 69
+        "version": 1403,
+        "index": 96
       }
     ],
     "src/NoMatching.jsx": [
@@ -70,16 +76,22 @@
       {
         "id": "160317c5-bd1a-4341-bac4-725b1294bd38",
         "line": 8,
-        "version": 2168,
-        "index": 204
+        "version": 2216,
+        "index": 211
       }
     ],
     "src/ProductListPage.jsx": [
       {
         "id": "ccf7a999-1297-4215-834b-47c0ff929eac",
         "line": 4,
-        "version": 2136,
-        "index": 133
+        "version": 2196,
+        "index": 132
+      },
+      {
+        "id": "02d1ff08-7944-4ae3-899d-1cde597c7fec",
+        "line": 7,
+        "version": 2196,
+        "index": 241
       }
     ]
   }
