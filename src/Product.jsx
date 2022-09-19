@@ -1,7 +1,9 @@
-import React from 'react';
+import React,{memo} from 'react';
 import { Link } from "react-router-dom";
 function Product({ thumbnail, category, title, price, id }) {
+  console.log("product rerunnig")
   return (
+    
     <div className="max-w-xs flex flex-col justify-between" >
       <div>
         <div className="w-full aspect-square">
@@ -29,4 +31,4 @@ function Product({ thumbnail, category, title, price, id }) {
   );
 }
 
-export default Product;
+export default memo(Product);

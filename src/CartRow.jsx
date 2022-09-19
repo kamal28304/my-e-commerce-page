@@ -1,8 +1,8 @@
-import React from "react"
+import React,{memo ,useState,useEffect} from "react"
 import { ImCross } from "react-icons/im"
 
 
-function CartRow({ thumbnail, title, price, id }) {
+function CartRow({thumbnail,title,price}) {
   return (
     <div>
       <div className="hidden sm:block">
@@ -18,7 +18,8 @@ function CartRow({ thumbnail, title, price, id }) {
             <h1>${price}</h1>
           </div>
           <div className="w-10 text-center">
-            <input className="w-12 border border-gray-200" />
+            <input className="w-12 border border-gray-200" 
+              value="1"/>
           </div>
           <div className="w-10 text-center">
             <h1>subtotal</h1>
@@ -32,7 +33,7 @@ function CartRow({ thumbnail, title, price, id }) {
           <ImCross className="text-3xl text-red-300" />
 
         </div>
-        <div className="border border-gray-300 p-2">
+        <div className="border border-gray-300 p-2 flex justify-center">
           <img className="h-16 w-16" src={thumbnail} />
         </div>
         <div className="border border-gray-300 flex justify-between p-2">
@@ -45,7 +46,9 @@ function CartRow({ thumbnail, title, price, id }) {
         </div>
         <div className="border border-gray-300 flex justify-between p-2">
           <h1>Quantity:</h1>
-          <input className="w-12 border border-gray-300" />
+          <input className="w-12 border border-gray-300"
+     value="1"       
+            />
         </div>
         <div className="border border-gray-300 flex justify-between p-2">
           <h1>Subtotal:</h1>
@@ -57,4 +60,4 @@ function CartRow({ thumbnail, title, price, id }) {
   );
 }
 
-export default CartRow;
+export default memo(CartRow);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import ProductList from "./ProductList";
 import { getProductList } from "./Api";
 import Loading from "./Loading";
@@ -26,7 +26,6 @@ function ProductListPage(id) {
   let data = productlist.filter(function(item) {
     return item.title.toLowerCase().indexOf(querry.toLowerCase()) != -1;
   })
-
   function handleQuerry(event) {
     setQuerry(event.target.value);
   }

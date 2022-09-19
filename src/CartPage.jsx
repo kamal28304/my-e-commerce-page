@@ -1,28 +1,46 @@
 import React,{useState,useEffect}from "react"
 import CartList from "./CartList"
-import {getProductList} from "./Api"
+import Loading from "./Loading"
+
+import {getProductData} from "./Api"
 import { Link } from "react-router-dom"
-
-
-
-
-function CartPage(id){
+function CartPage(id,{productCount}){
   const [cartList ,setCartList]=useState([])
-  useEffect(function() {
-    const promise = getProductList();
-    promise.then(function(carts) {
-      setCartList(carts);
-    
-    })
+const[loading,setLoading]=useState(true);
+const savedDataString= localStorage.getItem("my-cart") ||"{}" ;
+  const savedData = JSON.parse(savedDataString);
 
+  const [cart, setCart] = useState(savedData);
+  function getcartProducts(productId, Quantity) {
+    const newCart = { ...cart}
+    setCart(newCart)
+  }
+  
+  useEffect(function() {
+const myCart={...cart} 
+  const promisses=Object.keys(myCart).map(function (productId) {
+    return getProductData(productId)
+  })
+
+  const newPromise= Promise.all(promisses)
+
+newPromise.then(function(responses){
+  console.log(responses)
+setCartList(responses)
+  setLoading(false);
+}) 
   }, [id]);
+
+  if (loading) {
+    return <Loading />
+  }
   return (
     
     <div className="p-5 sm:p-12 bg-gray-100 max-w-5xl ">
       
     <div className="flex flex-col  justify-center p-5 bg-white" >
   
-  <CartList carts={cartList} />
+  <CartList products={cartList}/>
     
 <div className="flex items-end justify-end flex-col mt-5">
   

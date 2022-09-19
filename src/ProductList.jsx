@@ -1,4 +1,4 @@
-import React from "react"
+import React,{memo} from "react"
 import Product from "./Product"
 import { nextItemsData } from "./Api";
 import { Link } from "react-router-dom";
@@ -24,4 +24,4 @@ function ProductList({ products }) {
     </div>
   );
 }
-export default ProductList;
+export default memo(ProductList);

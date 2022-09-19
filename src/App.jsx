@@ -9,13 +9,17 @@ import NextItemsPage from "./NextItemsPage";
 import LastFourtyItemsPage from "./LastFourtyItemsPage";
 import CartPage from "./CartPage"
 
+
+
 function App() {
+  
+  
   const savedDataString= localStorage.getItem("my-cart") ||"{}" ;
   const savedData = JSON.parse(savedDataString);
   
   const path = window.location.pathname;
   const [cart, setCart] = useState(savedData);
-  function handleAddToCart(productId, count,thumbnail,title,price) {
+  function handleAddToCart(productId, count) {
     const oldCount = cart[productId] || 0;
     const newCart = { ...cart, [productId]: oldCount + count}
     setCart(newCart)
@@ -23,9 +27,9 @@ function App() {
     localStorage.setItem("my-cart",cartString);
   }
   
-  const totalCount = Object.keys(cart).reduce(function(previous, current) {
+const totalCount=  Object.keys(cart).reduce(function(previous, current) {
     return previous + cart[current]
-  }, 0)
+  }, 0);
   return (
     <div>
       <Header productCount={totalCount} />
@@ -35,11 +39,10 @@ function App() {
         <Route index element={<ProductListPage />}></Route>
         <Route path="/AboutProduct/:id" element={<AboutProduct onAddToCart={handleAddToCart} />}>
         </Route>
-        <Route path="/NextItemsPage" element={<NextItemsPage />}>
-        </Route>
+        <Route path="/NextItemsPage" element={<NextItemsPage />} />
        <Route path="/LastFourtyItemsPage" element={<LastFourtyItemsPage />}>
         </Route>
-        <Route path="/CartPage" element={<CartPage />} />
+        <Route path="/CartPage" element={<CartPage productCount={totalCount}/>} />
         
         <Route path="*" element={<NoFoundPage />}>
 
@@ -50,5 +53,6 @@ function App() {
     </div>
   );
 }
+      
 
 export default App;

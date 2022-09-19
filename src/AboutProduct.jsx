@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from "react";
+import React,{memo,useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
 import { Link } from "react-router-dom";
 import { HiArrowCircleLeft,HiArrowCircleRight } from "react-icons/hi";
@@ -85,4 +85,4 @@ to={"/AboutProduct/"+(id+1)}><HiArrowCircleRight/>Next</Link>}
     </>
   ): <Loading />
 }
-export default AboutProduct;
+export default memo(AboutProduct);
