@@ -10,6 +10,8 @@ import LastFourtyItemsPage from "./LastFourtyItemsPage";
 import CartPage from "./CartPage"
 import Login from "./Login"
 import SignUp from "./SignUp"
+import ForgotPassword from "./ForgotPassword"
+
 
 
 
@@ -48,6 +50,9 @@ const totalCount=  Object.keys(cart).reduce(function(previous, current) {
         <Route path="/CartPage" element={<CartPage productCount={totalCount}/>} />
         <Route path="/SignUp"
      element={<SignUp />}
+  ></Route>
+        <Route path="/ForgotPassword"
+     element={<ForgotPassword/>}
   ></Route>
         
         <Route path="*" element={<NoFoundPage />}>

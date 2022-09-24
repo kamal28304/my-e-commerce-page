@@ -9,12 +9,12 @@ import { Link } from "react-router-dom"
 function Login() {
 
 function callLoginApi(values) { 
-    console.log("sending data",values.email,values.password)
+    console.log("sending data",values.email,values.ResetPassword)
     }                     
   
 const schema = yup.object().shape({
 email: yup.string().email().required(),
-password: yup.string().min(8).required(),
+ResetPassword: yup.string().min(8).required(),
 })
   
 const {
@@ -30,7 +30,7 @@ const {
 }=useFormik({
   initialValues:{
     email:"",
-    password:"",
+    ResetPassword:"",
   },
   onSubmit:callLoginApi,
   validationSchema: schema,
@@ -41,7 +41,7 @@ const {
     <form 
       onSubmit={handleSubmit}
       className="bg-white p-4 shadow-md w-96">
-      <h1 className="text-2xl font-bold my-3 text-gray-700">Login</h1>
+      <h1 className="text-2xl font-bold my-3 text-gray-700">Reset Password</h1>
     <div className="border border-gray-300 rounded-md p-5 flex flex-col">
       <label htmlFor="email">
         
@@ -64,23 +64,18 @@ const {
       Password
       </label>
       <input 
-        placeholder="Password"
+        placeholder="Reset Password"
         value={values.password}
-        name="password"
+        name="ResetPassword"
       className="border border-gray-200  p-2"
         onChange={handleChange}
         onBlur={handleBlur}
-        id="password"
+        id="ResetPassword"
         type="password"
       
         />
-     {touched.password && errors.password && (<h1 className="text-red-700">{errors.password}*</h1>)}
-      <div className="flex my-3">
-      <input 
-        type="checkbox"
-        className="border self-start"/>
-        <h1 className="-mt-1 ml-1">Remember me</h1>
-      </div>
+     {touched.ResetPassword && errors.ResetPassword && (<h1 className="text-red-700">{errors.ResetPassword}*</h1>)}
+      
       <div className="flex justify-between">
       <Button type="submit"
         disabled={!!isValid}
@@ -94,11 +89,9 @@ const {
       </div>
       
     </form>
-  <Link to="/SignUp"
-        className="text-blue-500">don't have an account? SIGNUP</Link>
+  
 
-        <Link to="/ForgotPassword"
-        className="text-blue-500">Forgot Password?</Link>
+      
       </div>
   );
 }

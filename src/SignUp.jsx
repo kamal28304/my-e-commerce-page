@@ -9,7 +9,7 @@ import Button from "./Button";
 function SignUp() {
 
 function callLoginApi(values) { 
-    console.log("sending data",values.email,values.password)
+    console.log("sending data from signUp",values.email,values.password)
     }                     
   
 const schema = yup.object().shape({
@@ -33,6 +33,9 @@ const {
   initialValues:{
     email:"",
     password:"",
+    FirstName:"",
+    LastName:"",
+    confirmPassword:"",
   },
   onSubmit:callLoginApi,
   validationSchema: schema,
