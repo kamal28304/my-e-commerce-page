@@ -11,7 +11,7 @@ function ProductList({ products }) {
       <div className="sm:grid grid-cols-3 gap-3 space-y-2 sm:space-y-0 ">
         {products.map(function(items) {
           return (<Product{...items}
-            key={items.title} />);
+    key={items.title} />);
         }
         )}
         <span className="w-72"></span>

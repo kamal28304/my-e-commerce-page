@@ -46,21 +46,21 @@
       {
         "id": "b0ab3bfe-416e-406a-8d6e-0e72e9cbd7c9",
         "line": 58,
-        "version": 2994,
-        "index": 1550
+        "version": 3024,
+        "index": 1574
       },
       {
         "id": "5425e53d-f4c1-4eab-a930-f1ee470b9897",
         "line": 59,
-        "version": 2994,
-        "index": 1628
+        "version": 3024,
+        "index": 1652
       }
     ],
     "src/CartRow.jsx": [
       {
         "id": "f8d5e9c2-66b5-4023-9bd7-8c1fb879cb4d",
         "line": 5,
-        "version": 1403,
+        "version": 1467,
         "index": 96
       }
     ],
@@ -76,7 +76,7 @@
       {
         "id": "160317c5-bd1a-4341-bac4-725b1294bd38",
         "line": 8,
-        "version": 2216,
+        "version": 2219,
         "index": 211
       }
     ],
@@ -84,14 +84,14 @@
       {
         "id": "ccf7a999-1297-4215-834b-47c0ff929eac",
         "line": 4,
-        "version": 2196,
+        "version": 2261,
         "index": 132
       },
       {
         "id": "02d1ff08-7944-4ae3-899d-1cde597c7fec",
-        "line": 7,
-        "version": 2196,
-        "index": 241
+        "line": 8,
+        "version": 2261,
+        "index": 279
       }
     ]
   }

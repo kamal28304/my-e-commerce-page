@@ -17,7 +17,7 @@ function Product({ thumbnail, category, title, price, id }) {
           <span className="fa fa-star text-orange-500"></span>
           <span className="fa fa-star"></span>
           <span className="fa fa-star"></span>
-          <h1 className="font-bold text-cyan-500 text-xl my-2 font-mono">$ {price}</h1>
+          <h1 className="font-bold text-cyan-500 text-xl my-2 font-mono">Rs :{price}</h1>
         </div>
       </div>
       <div className="flex justify-center mb-2 mr-2">

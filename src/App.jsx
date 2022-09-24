@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 import Header from "./Header";
 import Footer from "./Footer";
 import ProductListPage from "./ProductListPage";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import AboutProduct from "./AboutProduct";
 import NoFoundPage from './NoFoundPage';
 import NextItemsPage from "./NextItemsPage";
 import LastFourtyItemsPage from "./LastFourtyItemsPage";
 import CartPage from "./CartPage"
+import Login from "./Login"
+import SignUp from "./SignUp"
+
 
 
 
 function App() {
-  
   
   const savedDataString= localStorage.getItem("my-cart") ||"{}" ;
   const savedData = JSON.parse(savedDataString);
@@ -33,20 +35,23 @@ const totalCount=  Object.keys(cart).reduce(function(previous, current) {
   return (
     <div>
       <Header productCount={totalCount} />
-
+      
       <Routes className="mt-10">
 
         <Route index element={<ProductListPage />}></Route>
         <Route path="/AboutProduct/:id" element={<AboutProduct onAddToCart={handleAddToCart} />}>
         </Route>
+        <Route path="/Login" element={<Login />} />
         <Route path="/NextItemsPage" element={<NextItemsPage />} />
        <Route path="/LastFourtyItemsPage" element={<LastFourtyItemsPage />}>
         </Route>
         <Route path="/CartPage" element={<CartPage productCount={totalCount}/>} />
+        <Route path="/SignUp"
+     element={<SignUp />}
+  ></Route>
         
         <Route path="*" element={<NoFoundPage />}>
-
-        </Route>
+ </Route>
       </Routes>
 
       <Footer />

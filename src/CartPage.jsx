@@ -36,7 +36,7 @@ setCartList(responses)
   }
   return (
     
-    <div className="p-5 sm:p-12 bg-gray-100 max-w-5xl ">
+    <div className="p-5 sm:p-12 bg-gray-100 max-w-5xl h-screen overflow-scroll">
       
     <div className="flex flex-col  justify-center p-5 bg-white" >
   
