@@ -3,6 +3,8 @@ import {useFormik} from "formik";
 import * as yup from "yup";
 import Button from "./Button";
 import { Link } from "react-router-dom"
+import Input  from "./Input"
+
 
 
 
@@ -37,44 +39,45 @@ const {
 });
 
   return(
-    <div className="bg-gray-300 p-2 h-screen flex flex-col justify-center items-center ">
+    <div className="bg-gray-300 p-2 h-screen overflow-scroll flex flex-col justify-center items-center ">
     <form 
       onSubmit={handleSubmit}
       className="bg-white p-4 shadow-md w-96">
       <h1 className="text-2xl font-bold my-3 text-gray-700">Login</h1>
     <div className="border border-gray-300 rounded-md p-5 flex flex-col">
-      <label htmlFor="email">
-        
-      Username or email address
-      </label>
-      <input 
+
+      <Input
+        label="email address"
         placeholder="email address"
         value={values.email}
         onChange={handleChange}
         onBlur={handleBlur}
         name="email"
-        className="border border-gray-200 p-2"
         id="email"
         type="email"
+        touched={touched.email}
+        error={errors.email}
+        autoComplete="email"
+        required
+        className="w-full rounded-b-none"
         />
-      {touched.email && errors.email && <h1 className="text-red-700">{errors.email}*</h1>}
       
-      <label htmlFor="password"
-        className="mt-3">
-      Password
-      </label>
-      <input 
+      <Input
+  label="password"
         placeholder="Password"
         value={values.password}
-        name="password"
-      className="border border-gray-200  p-2"
         onChange={handleChange}
         onBlur={handleBlur}
+        name="password"
         id="password"
         type="password"
-      
+        touched={touched.password}
+        error={errors.password}
+        autoComplete="current-password"
+        required
+        className="w-full rounded-t-none"
         />
-     {touched.password && errors.password && (<h1 className="text-red-700">{errors.password}*</h1>)}
+       
       <div className="flex my-3">
       <input 
         type="checkbox"

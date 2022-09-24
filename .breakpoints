@@ -42,6 +42,20 @@
         "index": 340
       }
     ],
+    "src/App.jsx": [
+      {
+        "id": "fe0cf1c8-e105-4bfc-aed0-f750d4f40878",
+        "line": 21,
+        "version": 6515,
+        "index": 550
+      },
+      {
+        "id": "b6194444-51e2-496f-a516-dba725c9a356",
+        "line": 24,
+        "version": 6515,
+        "index": 668
+      }
+    ],
     "src/CartPage.jsx": [
       {
         "id": "b0ab3bfe-416e-406a-8d6e-0e72e9cbd7c9",
