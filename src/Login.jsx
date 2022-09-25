@@ -1,5 +1,5 @@
 import React from "react";
-import {useFormik} from "formik";
+import {Formik,Form} from "formik";
 import * as yup from "yup";
 import Button from "./Button";
 import { Link } from "react-router-dom"
@@ -19,29 +19,20 @@ email: yup.string().email().required(),
 password: yup.string().min(8).required(),
 })
   
-const {
-  handleSubmit,
-  values,
-  handleChange,
-  resetForm,
-  errors,
-  touched,
-  handleBlur,
-  isValid,
-  dirty,
-}=useFormik({
-  initialValues:{
+const initialValues={
     email:"",
     password:"",
-  },
-  onSubmit:callLoginApi,
-  validationSchema: schema,
-});
-
+  }
   return(
     <div className="bg-gray-300 p-2 h-screen overflow-scroll flex flex-col justify-center items-center ">
-    <form 
-      onSubmit={handleSubmit}
+      <Formik 
+        initialValues={initialValues}
+     onSubmit={callLoginApi} 
+        validationSchema={schema}
+        validateOnMount
+        >
+    <Form 
+    
       className="bg-white p-4 shadow-md w-96">
       <h1 className="text-2xl font-bold my-3 text-gray-700">Login</h1>
     <div className="border border-gray-300 rounded-md p-5 flex flex-col">
@@ -49,33 +40,23 @@ const {
       <Input
         label="email address"
         placeholder="email address"
-        value={values.email}
-        onChange={handleChange}
-        onBlur={handleBlur}
         name="email"
         id="email"
         type="email"
-        touched={touched.email}
-        error={errors.email}
         autoComplete="email"
         required
-        className="w-full rounded-b-none"
+        className=" w-full rounded-b-none"
         />
       
       <Input
   label="password"
         placeholder="Password"
-        value={values.password}
-        onChange={handleChange}
-        onBlur={handleBlur}
         name="password"
         id="password"
         type="password"
-        touched={touched.password}
-        error={errors.password}
-        autoComplete="current-password"
+      autoComplete="current-password"
         required
-        className="w-full rounded-t-none"
+        className=" w-full rounded-t-none"
         />
        
       <div className="flex my-3">
@@ -86,17 +67,14 @@ const {
       </div>
       <div className="flex justify-between">
       <Button type="submit"
-        disabled={!!isValid}
+      
     >LOG IN</Button>
-      <button
-        className="px-5 py-1 bg-red-500 text-white rounded-md"
-    type="button"
-    onClick={resetForm}>Reset</button>
       </div>
      
       </div>
       
-    </form>
+    </Form>
+        </Formik>
   <Link to="/SignUp"
         className="text-blue-500">don't have an account? SIGNUP</Link>
 

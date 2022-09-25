@@ -60,13 +60,13 @@
       {
         "id": "b0ab3bfe-416e-406a-8d6e-0e72e9cbd7c9",
         "line": 58,
-        "version": 3024,
+        "version": 3043,
         "index": 1574
       },
       {
         "id": "5425e53d-f4c1-4eab-a930-f1ee470b9897",
         "line": 59,
-        "version": 3024,
+        "version": 3043,
         "index": 1652
       }
     ],
@@ -74,8 +74,8 @@
       {
         "id": "f8d5e9c2-66b5-4023-9bd7-8c1fb879cb4d",
         "line": 5,
-        "version": 1467,
-        "index": 96
+        "version": 1488,
+        "index": 76
       }
     ],
     "src/NoMatching.jsx": [
@@ -106,6 +106,14 @@
         "line": 8,
         "version": 2261,
         "index": 279
+      }
+    ],
+    "src/SignUp.jsx": [
+      {
+        "id": "da8e9234-eb6d-4377-857f-0d81a738fa8e",
+        "line": 116,
+        "version": 995,
+        "index": 3136
       }
     ]
   }
