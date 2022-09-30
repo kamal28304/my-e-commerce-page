@@ -2,5 +2,5 @@ run="npm run dev"
 entrypoint="src/App.jsx"
 
 [auth]
-pageEnabled = true
+pageEnabled = false
 buttonEnabled = false

@@ -1,5 +1,7 @@
 import React,{useState} from "react";
 import {useFormik} from "formik"
+import {FormikInput} from "./Input"
+
 
 import Button from "./Button";
 
@@ -64,7 +66,7 @@ if(password.length >= 8){
         className="mt-3">
       Password
       </label>
-      <input 
+      <FormikInput 
         placeholder="Password"
       className="border border-gray-200  p-2"
         onChange={handlePasswordChange}

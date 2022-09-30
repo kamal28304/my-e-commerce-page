@@ -1,4 +1,8 @@
 import React from "react";
+
+
+
+
 function Footer() {
   return (
     <div className="bg-gray-500 flex justify-between mx-auto sm:p-10 p-5 max-w-6xl relative ">

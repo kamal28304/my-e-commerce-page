@@ -1,7 +1,6 @@
 import React,{memo} from 'react';
 import { Link } from "react-router-dom";
 function Product({ thumbnail, category, title, price, id }) {
-  console.log("product rerunnig")
   return (
     
     <div className="max-w-xs flex flex-col justify-between" >

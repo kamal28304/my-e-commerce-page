@@ -1,25 +1,38 @@
-import React from "react"
+import React,{useState} from "react"
 import CartRow from "./CartRow"
-import CartHeader from "./CartHeader"
+//import CartHeader from "./CartHeader"
 import CartFooter from "./CartFooter"
 
 
-function CartList({products},Quantity){
-  return(
+export const contextData=React.createContext();
+
+function CartList({ products,Cart,updateCart}) {
+
+  
+  return (
     <div className="mt-16">
       <div className="hidden sm:block">
-      <CartHeader /> 
+        { /*<CartHeader />*/}
       </div>
-      
-      {products.map(function (items) {
-     return  <CartRow{...items} key={items.title}/> 
+
+      {products.map(function(items) {
+return <CartRow 
+         {...items} 
+         key={items.title}
+         quantity= {Cart[items.id]} 
+         cart={Cart}
+        productId={items.id}
+        updateCart={updateCart}
+        />
       })
-        
+
       }
 
-      
+<contextData.Provider value={updateCart,Cart} >
       <CartFooter />
-</div>
+  </contextData.Provider>
+      
+    </div>
   );
 }
 

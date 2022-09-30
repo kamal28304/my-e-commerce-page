@@ -24,14 +24,14 @@
       {
         "id": "ae874c57-f32d-482c-a132-b85da38ca5ec",
         "line": 3,
-        "version": 3434,
-        "index": 98
+        "version": 3435,
+        "index": 104
       },
       {
         "id": "5a3c01c0-ddaf-4648-b246-5ca085ac53b6",
         "line": 4,
-        "version": 3434,
-        "index": 139
+        "version": 3435,
+        "index": 145
       }
     ],
     "src/Api.jsx": [
@@ -45,37 +45,43 @@
     "src/App.jsx": [
       {
         "id": "fe0cf1c8-e105-4bfc-aed0-f750d4f40878",
-        "line": 21,
-        "version": 6515,
-        "index": 550
+        "line": 23,
+        "version": 6577,
+        "index": 551
       },
       {
         "id": "b6194444-51e2-496f-a516-dba725c9a356",
-        "line": 24,
-        "version": 6515,
+        "line": 26,
+        "version": 6577,
         "index": 668
       }
     ],
     "src/CartPage.jsx": [
       {
         "id": "b0ab3bfe-416e-406a-8d6e-0e72e9cbd7c9",
-        "line": 58,
-        "version": 3043,
-        "index": 1574
+        "line": 51,
+        "version": 3856,
+        "index": 1354
       },
       {
         "id": "5425e53d-f4c1-4eab-a930-f1ee470b9897",
-        "line": 59,
-        "version": 3043,
-        "index": 1652
+        "line": 52,
+        "version": 3856,
+        "index": 1436
       }
     ],
     "src/CartRow.jsx": [
       {
         "id": "f8d5e9c2-66b5-4023-9bd7-8c1fb879cb4d",
         "line": 5,
-        "version": 1488,
-        "index": 76
+        "version": 2103,
+        "index": 69
+      },
+      {
+        "id": "8e5a792e-c97f-4d89-9395-8d7ec5113388",
+        "line": 15,
+        "version": 2103,
+        "index": 306
       }
     ],
     "src/NoMatching.jsx": [
@@ -98,22 +104,52 @@
       {
         "id": "ccf7a999-1297-4215-834b-47c0ff929eac",
         "line": 4,
-        "version": 2261,
-        "index": 132
+        "version": 2275,
+        "index": 133
       },
       {
         "id": "02d1ff08-7944-4ae3-899d-1cde597c7fec",
+        "line": 6,
+        "version": 2275,
+        "index": 204
+      },
+      {
+        "id": "fb24ec4e-87b7-4274-aa2c-36a5bc08f5d4",
         "line": 8,
-        "version": 2261,
-        "index": 279
+        "version": 2275,
+        "index": 276
+      },
+      {
+        "id": "183724a4-312e-4ba1-baf0-5878a67ad9c6",
+        "line": 16,
+        "version": 2275,
+        "index": 504
+      },
+      {
+        "id": "68c264be-4381-46bc-a660-8b89f218c527",
+        "line": 21,
+        "version": 2275,
+        "index": 596
+      },
+      {
+        "id": "e344337f-d17b-4eb9-ae08-d33f3768aafb",
+        "line": 24,
+        "version": 2275,
+        "index": 658
+      },
+      {
+        "id": "e19a67f2-109d-428e-b23b-737b02c56afd",
+        "line": 25,
+        "version": 2275,
+        "index": 707
       }
     ],
     "src/SignUp.jsx": [
       {
         "id": "da8e9234-eb6d-4377-857f-0d81a738fa8e",
-        "line": 116,
-        "version": 995,
-        "index": 3136
+        "line": 1,
+        "version": 1383,
+        "index": 0
       }
     ]
   }

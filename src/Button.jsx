@@ -1,13 +1,13 @@
-import React,{memo} from "react"
+import React, { memo } from "react"
 
-function Button(props) {
-  return(
-  
+function Button({ className, ...props }) {
+  return (
+
     <div>
       <button {...props}
-        className="px-5 py-1 bg-red-500 rounded-md text-white disabled:bg-red-100">{props.children}
+        className={"px-5 py-1 bg-red-500 rounded-md text-white disabled:bg-red-100 " + className}>{props.children}
       </button>
-      </div>
+    </div>
   );
 }
 
