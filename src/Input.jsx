@@ -1,38 +1,38 @@
 import React from "react"
 import FormikHOC from "./FormikHOC"
 
-export function Input({label,
-                name,
-                id,
-                onChange,
-                onBlur,
-                value,
-                className,
-               ...rest
-          }) {
+ function Input({
+  name,
+  label,
+  id,
+  className,
+  touched,
+  error,
+  ...rest
+}) {
+  let borderClass="hover:border-indigo-500"
   
-  
-  
-  return(
+  if(touched && error){
+    borderClass= "border-red-500"
+  }
+
+  return (
     <div>
       <label
         className="sr-only">
-      {label}
+        {label}
       </label>
       <input
-        name={name}
-        value={value}
-        onChange={onChange}
-        onBlur={onBlur}
-        className={"border-2 p-3 rounded-md focus:outline-none " + className}
+        className={"border-2 p-3 rounded-md focus:outline-none " + className + " " + borderClass}
         id={id}
         {...rest}
-        />
-      
-      </div>
+      />
+      {touched && error && <h1 className="text-red-500">{error}</h1>}
+
+    </div>
   );
 }
 
- const FormikInput=FormikHOC(Input)
+export const FormikInput = FormikHOC(Input)
 
-export default FormikInput;
+export default Input;

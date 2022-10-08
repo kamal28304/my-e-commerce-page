@@ -3,8 +3,9 @@ import ProductList from "./ProductList";
 import { getProductList } from "./Api";
 import Loading from "./Loading";
 import NoMatching from "./NoMatching"
+import { Navigate } from "react-router"
 
-function ProductListPage(id) {
+function ProductListPage({user}) {
   const [loading, setLoading] = useState(true);
   const [productlist, setProductlist] = useState([]);
 
@@ -48,6 +49,9 @@ function ProductListPage(id) {
     }
   if (loading) {
     return <Loading />;
+  }
+  if(!user){
+    return <Navigate to="/login" />
   }
 
   return (

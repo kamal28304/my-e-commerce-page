@@ -7,8 +7,8 @@ import Button from "./Button";
 
 function SignUp() {
 
-  function callLoginApi(values) {
-    console.log("sending data from signUp", values.email, values.password)
+  function callSignUpApi(values) {
+    console.log("sending data from signUp", values.email, values.password,values.fullName,value.confirmPassword)
   }
 
   const schema = yup.object().shape({
@@ -26,8 +26,6 @@ function SignUp() {
     errors,
     touched,
     handleBlur,
-    isValid,
-    dirty,
   } = useFormik({
     initialValues: {
       email: "",
@@ -36,7 +34,7 @@ function SignUp() {
       LastName: "",
       confirmPassword: "",
     },
-    onSubmit: callLoginApi,
+    handleSubmit: callSignUpApi,
     validationSchema: schema,
   });
 
@@ -49,36 +47,22 @@ function SignUp() {
         <div className="border border-gray-300 rounded-md p-5 flex flex-col">
 
           <Input
-            label="Last Name"
-            placeholder="First Name"
-            value={values.FirstName}
+            label="fullName"
+            placeholder="fullName"
+            value={values.fullNameName}
             onChange={handleChange}
             onBlur={handleBlur}
-            name="FirstName"
+            name="fullName"
             className="border border-gray-200 p-2 my-2"
-            id="FirstName"
+            id="fullName"
             type="text"
-            touched={touched.FirstName}
-            error={errors.FirstName}
+            touched={touched.fullName}
+            error={errors.fullName}
              className="w-full rounded-b-none"
           />
 
 
-          <Input
-            label="Last Name"
-            placeholder="Last Name"
-            value={values.LastName}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            name="LastName"
-            className="border border-gray-200 p-2 my-2"
-            id="LastName"
-            type="text"
-            touched={touched.LastName}
-            error={errors.LastName}
-             className="w-full rounded-t-none rounded-b-none"
-          />
-
+          
 
 
           <Input
@@ -139,7 +123,7 @@ function SignUp() {
           </div>
           <div className="flex justify-between">
             <Button type="submit"
-              disabled={!isValid}
+        
             >Sign Up</Button>
             <button
               className="px-5 py-1 bg-red-500 text-white rounded-md"

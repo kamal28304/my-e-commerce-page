@@ -90,7 +90,7 @@ value={quantity}
         </div>
         <div className="border border-gray-300 flex justify-between p-2">
           <h1>Price:</h1>
-          <h1>{price}</h1>
+          <h1>${price}</h1>
         </div>
         <div className="border border-gray-300 flex justify-between p-2">
           <h1>Quantity:</h1>
@@ -103,7 +103,7 @@ value={quantity}
         </div>
         <div className="border border-gray-300 flex justify-between p-2">
           <h1>Subtotal:</h1>
-          <h1> 636 $</h1>
+          <h1> ${price*quantity}</h1>
         </div>
       </div>
   <button className="px-3 py-1 bg-red-500"

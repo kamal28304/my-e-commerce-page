@@ -1,6 +1,6 @@
+
 import React from "react";
 import { useField } from "formik";
-
 
 function FormikHOC(Input) {
   function OutgoingComponent(
@@ -15,9 +15,10 @@ function FormikHOC(Input) {
     const { value, onBlur, onChange } = data;
     const { touched, error } = meta;
 
-    let borderClass = "border-gray-200 focus:border-indigo-500"
+    let borderClass = "border-gray-200 focus:border-indigo-500 "
+    
     if (error && touched) {
-      borderClass = "border-red-500"
+      borderClass = "border-red-500 "
     }
     return (
       <div>
@@ -32,8 +33,7 @@ function FormikHOC(Input) {
           onBlur={onBlur}
           error={error}
           touched={touched}
-          className={"border-2 p-3 rounded-md focus:outline-none " + borderClass + " " + className}
-          id={id}
+          className={"border-2 p-3 rounded-md focus:outline-none " + borderClass + className}
           {...rest}
         />
         {touched && error && <h1 className="text-red-700">{error}*</h1>}

@@ -1,114 +1,138 @@
 import React from "react";
-import { Formik, Form } from "formik";
+import { withFormik } from "formik";
 import * as yup from "yup";
 import Button from "./Button";
 import { Link } from "react-router-dom"
 import Input from "./Input"
+import axios from "axios"
+import { Navigate } from "react-router"
 
+function callSignUpApi(values, bag) {
 
+  axios.post("https://myeasykart.codeyogi.io/signup", {
+    fullName: values.fullName,
+    email: values.email,
+    password: values.password,
+  }).then((response) => {
+    const { user, token } = response.data;
+    localStorage.setItem("token", token)
+    bag.props.setUser(user);
+    console.log("signed in user ", user,token)
+  }).catch(
+    console.log("invalid credentials")
+  )
+}
 
+const schema = yup.object().shape({
+  email: yup.string().email().required(),
+  password: yup.string().min(8).required(),
+})
 
-function SignUp() {
+const initialValues = {
+  email: "",
+  password: "",
+  fullName: "",
+  confirmPassword: ""
+}
 
-  function callLoginApi(values) {
-    console.log("sending data", values.email, values.password)
-  }
-
-  const schema = yup.object().shape({
-    email: yup.string().email().required(),
-    password: yup.string().min(8).required(),
-    ConfirmPassword: yup.string().min(8).required(),
-    FullName: yup.string().required(),
-
-  })
-
-  const initialValues = {
-    email: "",
-    password: "",
-    FirstName: "",
-    ConfirmPassword: "",
+export function SignUp({
+  handleSubmit,
+  values,
+  touched,
+  errors,
+  handleBlur,
+  handleChange,
+   user,}) {
+  
+  if(user){
+    return <Navigate to="/Login"/>
   }
   return (
     <div className="bg-gray-300 p-2 h-screen overflow-scroll flex flex-col justify-center items-center ">
-      <Formik
-        initialValues={initialValues}
-        onSubmit={callLoginApi}
-        validationSchema={schema}
-        validateOnMount
-      >
-        <Form
 
-          className="bg-white p-4 shadow-md w-96">
-          <h1 className="text-2xl font-bold my-3 text-gray-700">SIGNUP</h1>
-          <div className="border border-gray-300 rounded-md p-5 flex flex-col">
+      <form onSubmit={handleSubmit}
+        className="bg-white p-4 shadow-md w-96">
 
-            <Input
-              label="Full Name"
-              placeholder="Full Name"
-              name="FullName"
-              id="FullName"
-              type="text"
-              required
-              className="w-full rounded-b-none "
-            />
+        <h1 className="text-xl font-bold my-3 text-gray-700">Create Account</h1>
+        <div className="border border-gray-300 rounded-md p-5 flex flex-col">
 
 
+          <Input
+            values={values.fullName}
+            touched={touched.fullName}
+            error={errors.fullName}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            label="full Name"
+            placeholder="full Name"
+            name="fullName"
+            id="fullName"
+            type="text"
+            required
+            className=" w-full rounded-b-none"
+          />
 
-            <Input
-              label="email address"
-              placeholder="email address"
-              name="email"
-              id="email"
-              type="email"
-              autoComplete="email"
-              required
-              className="w-full rounded-b-none rounded-t-none"
-            />
+          <Input
+            values={values.email}
+            touched={touched.email}
+            error={errors.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            label="email address"
+            placeholder="email address"
+            name="email"
+            id="email"
+            type="email"
+            autoComplete="email"
+            required
+            className=" w-full rounded-b-none"
+          />
 
-            <Input
-              label="password"
-              placeholder="Password"
-              name="password"
-              id="password"
-              type="password"
-              autoComplete="current-password"
-              required
-              className="w-full rounded-t-none rounded-b-none"
-            />
+          <Input
+            values={values.password}
+            touched={touched.password}
+            error={errors.password}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            label="password"
+            placeholder="Password"
+            name="password"
+            id="password"
+            type="password"
+            autoComplete="current-password"
+            required
+            className="w-full rounded-t-none"
+          />
 
-            <Input
-              label="Confirm password"
-              placeholder="re-enter Password"
-              name="ConfirmPassword"
-              id="ConfirmPassword"
-              type="password"
-              autoComplete="current-password"
-              required
-              className=" w-full rounded-t-none"
-            />
-
-            <div className="flex my-3">
-              <input
-                type="checkbox"
-                className="border self-start" />
-              <h1 className="-mt-1 ml-1">Remember me</h1>
-            </div>
-            <div className="flex justify-between">
-              <Button type="submit"
-
-              >SignUp</Button>
-            </div>
-
+          <div className="flex my-3">
+            <input
+              type="checkbox"
+              className="border self-start" />
+            <h1 className="-mt-1 ml-1">Remember me</h1>
+          </div>
+          <div className="flex justify-between">
+            <Button type="submit">SIGNUP</Button>
           </div>
 
-        </Form>
-      </Formik>
-      <Link to="/Login"
-        className="text-blue-500">Already have an account? Login</Link>
+        </div>
 
+      </form>
 
+      <Link to="/SignUp"
+        className="text-blue-500">don't have an account? SIGNUP</Link>
+
+      <Link to="/ForgotPassword"
+        className="text-blue-500">Forgot Password?</Link>
     </div>
   );
 }
 
-export default SignUp;
+const myHOC = withFormik({
+  validationSchema: schema,
+  initialValues: initialValues,
+  handleSubmit: callSignUpApi,
+})
+
+const EasySignUp = myHOC(SignUp);
+
+export default EasySignUp;

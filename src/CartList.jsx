@@ -18,7 +18,7 @@ function CartList({ products,Cart,updateCart}) {
       {products.map(function(items) {
 return <CartRow 
          {...items} 
-         key={items.title}
+         key={items.id}
          quantity= {Cart[items.id]} 
          cart={Cart}
         productId={items.id}

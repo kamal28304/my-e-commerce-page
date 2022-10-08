@@ -1,9 +1,6 @@
 import React,{memo} from "react"
 import Product from "./Product"
-import { nextItemsData } from "./Api";
-import { Link } from "react-router-dom";
 import Links from "./Links"
-
 
 function ProductList({ products }) {
   return (

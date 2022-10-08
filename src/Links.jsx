@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import LastFourtyItemsPage from "./LastFourtyItemsPage"
-import NextItemsPage from "./NextItemsPage"
 
 function Links() {
   return (

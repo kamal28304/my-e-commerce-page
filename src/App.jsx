@@ -18,7 +18,7 @@ import ForgotPassword from "./ForgotPassword"
 
 
 function App() {
-
+const [user,setUser]=useState()
 
   const savedDataString = localStorage.getItem("my-cart") || "{}";
   const savedData = JSON.parse(savedDataString);
@@ -50,13 +50,13 @@ function App() {
         <Route index element={<ProductListPage />}></Route>
         <Route path="/AboutProduct/:id" element={<AboutProduct onAddToCart={handleAddToCart} />}>
         </Route>
-        <Route path="/Login" element={<Login />} />
+        <Route path="/Login" element={<Login setUser={setUser} user={user}/>} />
         <Route path="/NextItemsPage" element={<NextItemsPage />} />
         <Route path="/LastFourtyItemsPage" element={<LastFourtyItemsPage />}>
         </Route>
         <Route path="/CartPage" element={<CartPage cart={cart} setCart={updateCart} />} />
         <Route path="/SignUp"
-          element={<SignUp />}
+          element={<SignUp  setUser={setUser} user={user}/>}
         ></Route>
         <Route path="/ForgotPassword"
           element={<ForgotPassword />}

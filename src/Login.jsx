@@ -4,10 +4,22 @@ import * as yup from "yup";
 import Button from "./Button";
 import { Link } from "react-router-dom"
 import Input from "./Input"
+import axios from "axios"
+import { Navigate } from "react-router"
 
 
-function callLoginApi(values) {
-  console.log("sending data", values.email, values.password)
+function callLoginApi(values, bag) {
+  axios.post("https://myeasykart.codeyogi.io/login", {
+    email: values.email,
+    password: values.password,
+  }).then((response) => {
+    const { user, token } = response.data;
+    localStorage.setItem("token", token)
+    bag.props.setUser(user);
+    console.log("user in login ",user)
+  }).catch(
+    console.log("invalid credentials!")
+  )
 }
 
 const schema = yup.object().shape({
@@ -20,13 +32,24 @@ const initialValues = {
   password: "",
 }
 
-export function Login({handleSubmit,values,touched,errors,handleBlur ,handleChange}) {
+export function Login({
+  handleSubmit,
+  values,
+  touched,
+  errors,
+  handleBlur,
+  handleChange,
+user,
+}) {
+  if(user){
+    return <Navigate to="/" />
+  }
   return (
     <div className="bg-gray-300 p-2 h-screen overflow-scroll flex flex-col justify-center items-center ">
 
       <form onSubmit={handleSubmit}
-
         className="bg-white p-4 shadow-md w-96">
+
         <h1 className="text-2xl font-bold my-3 text-gray-700">Login</h1>
         <div className="border border-gray-300 rounded-md p-5 flex flex-col">
 
@@ -85,7 +108,12 @@ export function Login({handleSubmit,values,touched,errors,handleBlur ,handleChan
   );
 }
 
-const myHOC = withFormik({ validationSchema: schema, initialValues: initialValues, onSubmit: callLoginApi })
+const myHOC = withFormik({
+  validationSchema: schema,
+  initialValues: initialValues,
+  handleSubmit: callLoginApi,
+})
 
-const easyLogin = myHOC(Login)
-export default easyLogin;
+const EasyLogin = myHOC(Login);
+
+export default EasyLogin;
