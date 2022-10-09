@@ -48,7 +48,6 @@ function updateMyCart(){
     <div>
       {/* <div className="hidden sm:block">
 
-
         <div className="flex justify-between border border-gray-500 p-5">
           <div className="flex">
 

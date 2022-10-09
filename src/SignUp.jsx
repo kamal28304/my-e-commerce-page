@@ -15,7 +15,7 @@ function callSignUpApi(values, bag) {
     password: values.password,
   }).then((response) => {
     const { user, token } = response.data;
-    localStorage.setItem("token", token)
+    localStorage.setItem("token", token,user)
     bag.props.setUser(user);
     console.log("signed in user ", user,token)
   }).catch(
@@ -42,11 +42,11 @@ export function SignUp({
   errors,
   handleBlur,
   handleChange,
-   user,}) {
+   }) {
   
-  if(user){
+  {/*if(user){
     return <Navigate to="/Login"/>
-  }
+  }*/}
   return (
     <div className="bg-gray-300 p-2 h-screen overflow-scroll flex flex-col justify-center items-center ">
 

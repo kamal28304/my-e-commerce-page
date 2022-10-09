@@ -3,9 +3,9 @@ import ProductList from "./ProductList";
 import { getProductList } from "./Api";
 import Loading from "./Loading";
 import NoMatching from "./NoMatching"
-import { Navigate } from "react-router"
 
-function ProductListPage({user}) {
+
+function ProductListPage() {
   const [loading, setLoading] = useState(true);
   const [productlist, setProductlist] = useState([]);
 
@@ -50,9 +50,9 @@ function ProductListPage({user}) {
   if (loading) {
     return <Loading />;
   }
-  if(!user){
+  {/*if(!user){
     return <Navigate to="/login" />
-  }
+  }*/}
 
   return (
     <div className="bg-gray-200 p-5">

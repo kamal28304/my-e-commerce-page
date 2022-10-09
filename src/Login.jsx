@@ -39,10 +39,10 @@ export function Login({
   errors,
   handleBlur,
   handleChange,
-user,
+  user,
 }) {
-  if(user){
-    return <Navigate to="/" />
+  if (user) {
+    <Navigate to="/" />
   }
   return (
     <div className="bg-gray-300 p-2 h-screen overflow-scroll flex flex-col justify-center items-center ">
