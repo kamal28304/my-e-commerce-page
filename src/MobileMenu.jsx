@@ -1,28 +1,29 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import Button from "./Button"
-
+import  { withUser}  from "./withProvider"
 
 
 function MobileMenu({user,setUser}) {
+ 
 
-  function handleLogout() {
-    localStorage.removeItem("token");
+  function handleLogout() {  localStorage.removeItem("token");
     setUser(undefined);
   }
   if (!user) {
     return <></>;
   }
   return(
-   <div className="flex flex-col">
+   <div className="flex flex-col space-y-3 h-full">
       
-      <Link to="/" className="border p-2 text-indigo-500 flex">Home</Link>
-      <Link className="border p-2 text-indigo-500">About</Link>
-      {!user && <Link to="/Login" className="border p-2 text-indigo-500">Login</Link>}
-      {!user &&<Link to="/SignUp"className="border p-2 text-indigo-500 w-full">Sign Up</Link>}
+      <Link to="/" className="my-2 text-gray-500 flex">Home</Link>
+      <Link className="my-2 text-gray-500">About</Link>
+      {!user && <Link to="/Login" className="my-2
+text-gray-500">Login</Link>}
+      <Link to="/CartPage"className="my-2 text-gray-500 w-full">Cart</Link>
       <Button onClick={handleLogout}>LogOut</Button>
     
   </div>
   );
 }
-export default MobileMenu;
+export default withUser(MobileMenu);

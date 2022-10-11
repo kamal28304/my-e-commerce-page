@@ -5,7 +5,8 @@ import Button from "./Button";
 import { Link } from "react-router-dom"
 import Input from "./Input"
 import axios from "axios"
-import { Navigate } from "react-router"
+import {withUser,withAlert} from "./withProvider";
+
 
 
 function callLoginApi(values, bag) {
@@ -17,9 +18,9 @@ function callLoginApi(values, bag) {
     localStorage.setItem("token", token)
     bag.props.setUser(user);
     console.log("user in login ",user)
-  }).catch(
-    console.log("invalid credentials!")
-  )
+  }).catch(()=>{
+bag.props.setAlert({type:"error",message:"Invalid credentials"})
+  })
 }
 
 const schema = yup.object().shape({
@@ -39,13 +40,10 @@ export function Login({
   errors,
   handleBlur,
   handleChange,
-  user,
 }) {
-  if (user) {
-    <Navigate to="/" />
-  }
+
   return (
-    <div className="bg-gray-300 p-2 h-screen overflow-scroll flex flex-col justify-center items-center ">
+    <div className="p-2 h-screen overflow-scroll flex flex-col justify-center items-center ">
 
       <form onSubmit={handleSubmit}
         className="bg-white p-4 shadow-md w-96">
@@ -108,12 +106,11 @@ export function Login({
   );
 }
 
-const myHOC = withFormik({
+ const FormikLogin= withFormik({
   validationSchema: schema,
   initialValues: initialValues,
   handleSubmit: callLoginApi,
-})
+})(Login);
 
-const EasyLogin = myHOC(Login);
+export default withAlert(withUser(FormikLogin));
 
-export default EasyLogin;

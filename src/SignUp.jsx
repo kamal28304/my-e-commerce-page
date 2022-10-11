@@ -5,17 +5,16 @@ import Button from "./Button";
 import { Link } from "react-router-dom"
 import Input from "./Input"
 import axios from "axios"
-import { Navigate } from "react-router"
+import {withUser} from "./withProvider"
 
 function callSignUpApi(values, bag) {
-
   axios.post("https://myeasykart.codeyogi.io/signup", {
     fullName: values.fullName,
     email: values.email,
     password: values.password,
   }).then((response) => {
     const { user, token } = response.data;
-    localStorage.setItem("token", token,user)
+    localStorage.setItem("token", token)
     bag.props.setUser(user);
     console.log("signed in user ", user,token)
   }).catch(
@@ -32,7 +31,7 @@ const initialValues = {
   email: "",
   password: "",
   fullName: "",
-  confirmPassword: ""
+  confirmPassword: "",
 }
 
 export function SignUp({
@@ -44,9 +43,6 @@ export function SignUp({
   handleChange,
    }) {
   
-  {/*if(user){
-    return <Navigate to="/Login"/>
-  }*/}
   return (
     <div className="bg-gray-300 p-2 h-screen overflow-scroll flex flex-col justify-center items-center ">
 
@@ -127,12 +123,9 @@ export function SignUp({
   );
 }
 
-const myHOC = withFormik({
+const EasySignUp  = withFormik({
   validationSchema: schema,
   initialValues: initialValues,
   handleSubmit: callSignUpApi,
-})
-
-const EasySignUp = myHOC(SignUp);
-
-export default EasySignUp;
+})(SignUp)
+export default withUser(EasySignUp);

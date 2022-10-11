@@ -24,14 +24,22 @@
       {
         "id": "ae874c57-f32d-482c-a132-b85da38ca5ec",
         "line": 3,
-        "version": 3450,
+        "version": 3451,
         "index": 104
       },
       {
         "id": "5a3c01c0-ddaf-4648-b246-5ca085ac53b6",
         "line": 4,
-        "version": 3450,
+        "version": 3451,
         "index": 145
+      }
+    ],
+    "src/Alert.jsx": [
+      {
+        "id": "49815448-a5fe-4101-a30d-bfb5e1466716",
+        "line": 5,
+        "version": 1408,
+        "index": 200
       }
     ],
     "src/Api.jsx": [
@@ -45,15 +53,15 @@
     "src/App.jsx": [
       {
         "id": "fe0cf1c8-e105-4bfc-aed0-f750d4f40878",
-        "line": 23,
-        "version": 6703,
-        "index": 582
+        "line": 41,
+        "version": 8530,
+        "index": 1222
       },
       {
         "id": "b6194444-51e2-496f-a516-dba725c9a356",
-        "line": 26,
-        "version": 6703,
-        "index": 699
+        "line": 44,
+        "version": 8530,
+        "index": 1338
       }
     ],
     "src/CartPage.jsx": [
@@ -74,14 +82,36 @@
       {
         "id": "f8d5e9c2-66b5-4023-9bd7-8c1fb879cb4d",
         "line": 7,
-        "version": 3267,
+        "version": 3270,
         "index": 123
       },
       {
         "id": "8e5a792e-c97f-4d89-9395-8d7ec5113388",
         "line": 47,
-        "version": 3267,
+        "version": 3270,
         "index": 939
+      }
+    ],
+    "src/Header.jsx": [
+      {
+        "id": "5df63528-f335-41af-9724-21811048b34b",
+        "line": 6,
+        "version": 2074,
+        "index": 215
+      }
+    ],
+    "src/MobileMenu.jsx": [
+      {
+        "id": "f9607657-cb9f-4ea6-973c-7e6379db0d83",
+        "line": 1,
+        "version": 921,
+        "index": 0
+      },
+      {
+        "id": "1265dcf1-dd59-4988-9509-2078db2151c1",
+        "line": 15,
+        "version": 921,
+        "index": 306
       }
     ],
     "src/NoMatching.jsx": [
@@ -104,44 +134,52 @@
       {
         "id": "ccf7a999-1297-4215-834b-47c0ff929eac",
         "line": 4,
-        "version": 2281,
+        "version": 2395,
         "index": 133
       },
       {
         "id": "02d1ff08-7944-4ae3-899d-1cde597c7fec",
-        "line": 6,
-        "version": 2281,
-        "index": 204
+        "line": 7,
+        "version": 2395,
+        "index": 205
       },
       {
         "id": "fb24ec4e-87b7-4274-aa2c-36a5bc08f5d4",
-        "line": 8,
-        "version": 2281,
-        "index": 274
+        "line": 9,
+        "version": 2395,
+        "index": 275
       },
       {
         "id": "183724a4-312e-4ba1-baf0-5878a67ad9c6",
-        "line": 16,
-        "version": 2281,
-        "index": 502
+        "line": 17,
+        "version": 2395,
+        "index": 503
       },
       {
         "id": "68c264be-4381-46bc-a660-8b89f218c527",
-        "line": 21,
-        "version": 2281,
-        "index": 594
+        "line": 22,
+        "version": 2395,
+        "index": 595
       },
       {
         "id": "e344337f-d17b-4eb9-ae08-d33f3768aafb",
-        "line": 24,
-        "version": 2281,
-        "index": 656
+        "line": 25,
+        "version": 2395,
+        "index": 657
       },
       {
         "id": "e19a67f2-109d-428e-b23b-737b02c56afd",
-        "line": 25,
-        "version": 2281,
-        "index": 705
+        "line": 26,
+        "version": 2395,
+        "index": 706
+      }
+    ],
+    "withUser.jsx": [
+      {
+        "id": "46b4e71c-62e4-482a-b8fe-5e88bad18147",
+        "line": 2,
+        "version": 60,
+        "index": 27
       }
     ]
   }

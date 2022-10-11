@@ -1,11 +1,10 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from "./Header";
 import Footer from "./Footer";
 import ProductListPage from "./ProductListPage";
 import { Routes, Route } from "react-router-dom";
 import AboutProduct from "./AboutProduct";
 import Loading from "./Loading"
-
 import NoFoundPage from './NoFoundPage';
 import NextItemsPage from "./NextItemsPage";
 import LastFourtyItemsPage from "./LastFourtyItemsPage";
@@ -16,38 +15,41 @@ import ForgotPassword from "./ForgotPassword"
 import axios from "axios"
 import UserRoute from "./UserRoute"
 import AuthRoute from "./AuthRoute"
+import { UserContext, AlertContext } from "./Contexts"
+import Alert from "./Alert"
 
 
 
 
 function App() {
-const [user,setUser]=useState()
-  const [loading,setLoading]=useState(true)
+  const [user, setUser] = useState()
+  const [loading, setLoading] = useState(true)
+  const [alert, setAlert] = useState();
 
-  const token=localStorage.getItem("token")
+  const token = localStorage.getItem("token")
 
-useEffect(()=>{
-   if (token) {
-axios.get("https://myeasykart.codeyogi.io/me",{headers:{Authorization:token,}})
-  .then((response)=>{
-      setUser(response.data)
-    setLoading(false)
-    });
-   }else{
-     setLoading(false)
-   }
-  },[token]);
-  
+  useEffect(() => {
+    if (token) {
+      axios.get("https://myeasykart.codeyogi.io/me", { headers: { Authorization: token, } })
+        .then((response) => {
+          setUser(response.data)
+          setLoading(false)
+        });
+    } else {
+      setLoading(false)
+    }
+  }, [token]);
+
   const savedDataString = localStorage.getItem("my-cart") || "{}";
   const savedData = JSON.parse(savedDataString);
-const path = window.location.pathname;
+  const path = window.location.pathname;
   const [cart, setCart] = useState(savedData);
   function handleAddToCart(productId, count) {
     const oldCount = cart[productId] || 0;
     const newCart = { ...cart, [productId]: oldCount + count }
     setCart(newCart);
   }
-  
+
   function updateCart(newCart) {
     setCart(newCart)
     const cartString = JSON.stringify(newCart);
@@ -59,41 +61,52 @@ const path = window.location.pathname;
   }, 0);
 
   const cartString = JSON.stringify(cart);
-    localStorage.setItem("my-cart", cartString);
+  localStorage.setItem("my-cart", cartString);
 
+  function removeAlert() {
+    setAlert('');
+  }
   if (loading) {
     return <Loading />
   }
-  
+
   return (
     <div>
-      <Header productCount={totalCount} user={user} setUser={setUser}/>
 
+      <UserContext.Provider value={{ user, setUser }} >
+        <AlertContext.Provider value={{ alert, setAlert, removeAlert }} >
 
-      <Routes className="mt-10">
+          <Header productCount={totalCount} />
+          <div className="bg-gray-300 flex flex-col justify-center">
+            <div className="mt-20">
+              <Alert />
+            </div>
+            <Routes className="mt-10">
+              <Route index element={<UserRoute><ProductListPage /></UserRoute>} />
+              <Route path="/AboutProduct/:id" element={<AboutProduct onAddToCart={handleAddToCart} />}>
+              </Route>
+              <Route path="/Login" element={<AuthRoute ><Login /></AuthRoute>} />
+              <Route path="/NextItemsPage" element={<NextItemsPage />} />
+              <Route path="/LastFourtyItemsPage" element={<LastFourtyItemsPage />}>
+              </Route>
+              <Route path="/CartPage" element={<UserRoute><CartPage cart={cart} setCart={updateCart} /></UserRoute>} />
+              <Route path="/SignUp"
+                element={<AuthRoute><SignUp /></AuthRoute>}
+              />
+              <Route path="/ForgotPassword"
+                element={<ForgotPassword />}
+              ></Route>
 
-        <Route index element={<UserRoute user={user}><ProductListPage/></UserRoute>} />
-        <Route path="/AboutProduct/:id" element={<AboutProduct onAddToCart={handleAddToCart} />}>
-        </Route>
-        <Route path="/Login" element={<AuthRoute user={user}><Login setUser={setUser} user={user}/></AuthRoute>} />
-        <Route path="/NextItemsPage" element={<NextItemsPage />} />
-        <Route path="/LastFourtyItemsPage" element={<LastFourtyItemsPage />}>
-        </Route>
-        <Route path="/CartPage" element={<CartPage cart={cart} setCart={updateCart} />} />
-        <Route path="/SignUp"
-  element={<AuthRoute user={user}><SignUp  setUser={setUser} user={user}/></AuthRoute>}
-        />
-        <Route path="/ForgotPassword"
-          element={<ForgotPassword />}
-        ></Route>
-
-        <Route path="*" element={<NoFoundPage />}>
-        </Route>
-      </Routes>
-
-
-      <Footer />
+              <Route path="*" element={<NoFoundPage />}>
+              </Route>
+            </Routes>
+          </div>
+          <Footer />
+        </AlertContext.Provider>
+      </UserContext.Provider>
     </div>
+
+
   );
 }
 

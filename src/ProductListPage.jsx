@@ -55,7 +55,7 @@ function ProductListPage() {
   }*/}
 
   return (
-    <div className="bg-gray-200 p-5">
+    <div className="p-5 flex items-center justify-center">
       <div className="p-2 bg-white max-w-6xl mx-auto  py-[50px] my-[60px] px-9 ">
 
         <div className="min-h-screen flex flex-col justify-center p-5 ">

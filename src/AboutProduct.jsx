@@ -40,7 +40,7 @@ function AboutProduct({ onAddToCart }) {
     <>
       <div className="min-h-screen flex items-center overflow-scroll">
 
-        <div className="bg-gray-300 p-5">
+        <div className=" p-5">
           <div className="mb-2">
 
             <Link className="text-3xl flex items-center" to="/"><HiArrowCircleLeft />Back</Link>

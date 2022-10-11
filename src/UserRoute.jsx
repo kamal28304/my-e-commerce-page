@@ -1,6 +1,6 @@
 import React from "react"
 import { Navigate } from "react-router"
-
+import {withUser} from "./withProvider"
 
 
 
@@ -11,4 +11,4 @@ function UserRoute({user,children}) {
   return children;
 }
 
-export default UserRoute;
+export default withUser(UserRoute);
