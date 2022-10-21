@@ -1,31 +1,16 @@
-import React,{useContext,useState} from "react";
-import {contextData} from "./CartList"
-function CartFooter() {
-const {updateCart,Cart}  = useContext(contextData)
+import React from "react";
 
-  const [localCart,setLocalCart]=useState(Cart)
+function CartFooter({updateCart}) {
 
-function handleChange(event) {
-    const newValue= +event.target.value;
-    const changedId= event.target.getAttribute("productid")
-    
-    const newLocalCart={...localCart,[changedId]:newValue}
-    setLocalCart(newLocalCart)
-  updateCart(localCart);
-  }
-
-  
-
-
-  return (
+return (
     <div className="sm:flex justify-between border border-gray-500 p-3 rounded-b-md">
-      <div className="flex">
+      <div className="flex flex-col sm:flex-row">
         <input placeholder="Coupen Code"
           className="border" />
-        <button className="px-3 py-1 bg-red-500 text-white text-center ml-2">APPLY COUPON</button>
+        <button className="px-3 py-1 bg-red-500 text-white text-center sm:ml-2 my-2 sm:my-0">APPLY COUPON</button>
       </div>
 
-      <button className="px-3 py-1 bg-red-500 text-white text-center" onClick={handleChange}>Update Cart</button>
+      <button className="px-3 py-1 bg-red-500 text-white text-center my-2 sm:my-0" onClick={updateCart}>Update Cart</button>
     </div>
   );
 }

@@ -5,7 +5,9 @@ import Button from "./Button";
 import { Link } from "react-router-dom"
 import Input from "./Input"
 import axios from "axios"
-import {withUser} from "./withProvider"
+import {withUser,withAlert} from "./withProvider"
+import Alert from "./Alert"
+
 
 function callSignUpApi(values, bag) {
   axios.post("https://myeasykart.codeyogi.io/signup", {
@@ -14,12 +16,15 @@ function callSignUpApi(values, bag) {
     password: values.password,
   }).then((response) => {
     const { user, token } = response.data;
-    localStorage.setItem("token", token)
+localStorage.setItem("token", token)
     bag.props.setUser(user);
     console.log("signed in user ", user,token)
-  }).catch(
-    console.log("invalid credentials")
-  )
+  }).catch(()=>{
+    bag.props.setAlert({
+      type:"error",
+      message:"email entered by you Already in use.please enter your unique email",
+    })
+})
 }
 
 const schema = yup.object().shape({
@@ -41,11 +46,14 @@ export function SignUp({
   errors,
   handleBlur,
   handleChange,
+  alert,
    }) {
   
   return (
     <div className="bg-gray-300 p-2 h-screen overflow-scroll flex flex-col justify-center items-center ">
-
+      <div className="my-10 w-full">
+      {alert && <Alert />}
+</div>
       <form onSubmit={handleSubmit}
         className="bg-white p-4 shadow-md w-96">
 
@@ -65,7 +73,7 @@ export function SignUp({
             id="fullName"
             type="text"
             required
-            className=" w-full rounded-b-none"
+            className="w-full rounded-b-none "
           />
 
           <Input
@@ -81,7 +89,7 @@ export function SignUp({
             type="email"
             autoComplete="email"
             required
-            className=" w-full rounded-b-none"
+            className=" w-full rounded-b-none rounded-t-none"
           />
 
           <Input
@@ -128,4 +136,4 @@ const EasySignUp  = withFormik({
   initialValues: initialValues,
   handleSubmit: callSignUpApi,
 })(SignUp)
-export default withUser(EasySignUp);
+export default withAlert(withUser(EasySignUp));

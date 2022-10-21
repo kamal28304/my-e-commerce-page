@@ -6,6 +6,8 @@ import { Link } from "react-router-dom"
 import Input from "./Input"
 import axios from "axios"
 import {withUser,withAlert} from "./withProvider";
+import Alert from "./Alert"
+
 
 
 
@@ -19,13 +21,16 @@ function callLoginApi(values, bag) {
     bag.props.setUser(user);
     console.log("user in login ",user)
   }).catch(()=>{
-bag.props.setAlert({type:"error",message:"Invalid credentials"})
+bag.props.setAlert({
+  type:"error",              
+  message:"Invalid credentials",
+  })
   })
 }
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
-  password: yup.string().min(8).required(),
+  password: yup.string().min(6).required(),
 })
 
 const initialValues = {
@@ -40,13 +45,20 @@ export function Login({
   errors,
   handleBlur,
   handleChange,
+  alert,
 }) {
+  
 
   return (
-    <div className="p-2 h-screen overflow-scroll flex flex-col justify-center items-center ">
-
+    
+       
+    <div className="p-3 h-screen overflow-scroll flex flex-col justify-center items-center ">
+     <div className="my-10 w-full">
+       { alert && <Alert /> }
+     </div>
+      
       <form onSubmit={handleSubmit}
-        className="bg-white p-4 shadow-md w-96">
+        className="bg-white p-4 shadow-md w-96 rounded-sm">
 
         <h1 className="text-2xl font-bold my-3 text-gray-700">Login</h1>
         <div className="border border-gray-300 rounded-md p-5 flex flex-col">
@@ -62,7 +74,7 @@ export function Login({
             name="email"
             id="email"
             type="email"
-            autoComplete="email"
+        autoComplete="email"
             required
             className=" w-full rounded-b-none"
           />

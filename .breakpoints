@@ -24,72 +24,74 @@
       {
         "id": "ae874c57-f32d-482c-a132-b85da38ca5ec",
         "line": 3,
-        "version": 3451,
-        "index": 104
+        "version": 3464,
+        "index": 98
       },
       {
         "id": "5a3c01c0-ddaf-4648-b246-5ca085ac53b6",
         "line": 4,
-        "version": 3451,
-        "index": 145
+        "version": 3464,
+        "index": 139
       }
     ],
     "src/Alert.jsx": [
       {
         "id": "49815448-a5fe-4101-a30d-bfb5e1466716",
         "line": 5,
-        "version": 1408,
-        "index": 200
+        "version": 1760,
+        "index": 192
       }
     ],
     "src/Api.jsx": [
       {
         "id": "2fc39814-4a29-4cbd-9f4d-0244d99769c4",
-        "line": 13,
-        "version": 748,
-        "index": 340
+        "line": 34,
+        "version": 1467,
+        "index": 597
       }
     ],
     "src/App.jsx": [
       {
-        "id": "fe0cf1c8-e105-4bfc-aed0-f750d4f40878",
-        "line": 41,
-        "version": 8530,
-        "index": 1222
-      },
+        "id": "1349376c-6873-4f22-b942-81711d7e2b55",
+        "line": 4,
+        "version": 8995,
+        "index": 103
+      }
+    ],
+    "src/CartHeader.jsx": [
       {
-        "id": "b6194444-51e2-496f-a516-dba725c9a356",
-        "line": 44,
-        "version": 8530,
-        "index": 1338
+        "id": "83a96f04-83fd-4539-8c30-67a29fd786e4",
+        "line": 4,
+        "version": 242,
+        "index": 51
       }
     ],
     "src/CartPage.jsx": [
       {
         "id": "b0ab3bfe-416e-406a-8d6e-0e72e9cbd7c9",
-        "line": 52,
-        "version": 4002,
-        "index": 1386
+        "line": 35,
+        "version": 4416,
+        "index": 844
       },
       {
         "id": "5425e53d-f4c1-4eab-a930-f1ee470b9897",
-        "line": 53,
-        "version": 4002,
-        "index": 1468
+        "line": 35,
+        "version": 4416,
+        "index": 844
       }
     ],
     "src/CartRow.jsx": [
       {
         "id": "f8d5e9c2-66b5-4023-9bd7-8c1fb879cb4d",
         "line": 7,
-        "version": 3270,
-        "index": 123
+        "version": 3720,
+        "index": 116
       },
       {
         "id": "8e5a792e-c97f-4d89-9395-8d7ec5113388",
-        "line": 47,
-        "version": 3270,
-        "index": 939
+        "line": 38,
+        "version": 3720,
+        "index": 644
       }
     ],
     "src/Header.jsx": [
@@ -125,53 +127,69 @@
     "src/ProductList.jsx": [
       {
         "id": "160317c5-bd1a-4341-bac4-725b1294bd38",
-        "line": 5,
-        "version": 2254,
-        "index": 130
+        "line": 6,
+        "version": 2264,
+        "index": 131
       }
     ],
     "src/ProductListPage.jsx": [
       {
         "id": "ccf7a999-1297-4215-834b-47c0ff929eac",
-        "line": 4,
-        "version": 2395,
-        "index": 133
+        "line": 1,
+        "version": 4339,
+        "index": 0
       },
       {
         "id": "02d1ff08-7944-4ae3-899d-1cde597c7fec",
-        "line": 7,
-        "version": 2395,
-        "index": 205
+        "line": 1,
+        "version": 4339,
+        "index": 0
       },
       {
         "id": "fb24ec4e-87b7-4274-aa2c-36a5bc08f5d4",
-        "line": 9,
-        "version": 2395,
-        "index": 275
+        "line": 1,
+        "version": 4339,
+        "index": 0
       },
       {
         "id": "183724a4-312e-4ba1-baf0-5878a67ad9c6",
-        "line": 17,
-        "version": 2395,
-        "index": 503
+        "line": 1,
+        "version": 4339,
+        "index": 0
       },
       {
         "id": "68c264be-4381-46bc-a660-8b89f218c527",
-        "line": 22,
-        "version": 2395,
-        "index": 595
+        "line": 1,
+        "version": 4339,
+        "index": 0
       },
       {
         "id": "e344337f-d17b-4eb9-ae08-d33f3768aafb",
-        "line": 25,
-        "version": 2395,
-        "index": 657
+        "line": 1,
+        "version": 4339,
+        "index": 0
       },
       {
         "id": "e19a67f2-109d-428e-b23b-737b02c56afd",
-        "line": 26,
-        "version": 2395,
-        "index": 706
+        "line": 1,
+        "version": 4339,
+        "index": 0
+      }
+    ],
+    "src/Providers/AlertProvider.jsx": [
+      {
+        "id": "2f4d45a2-3e8d-4c44-84cd-67d09c202401",
+        "line": 1,
+        "version": 27,
+        "index": 0
+      }
+    ],
+    "src/Providers/UserProvider.jsx": [
+      {
+        "id": "ec88ab13-cea7-4616-9fe3-7ce78d0c611b",
+        "line": 3,
+        "version": 64,
+        "index": 78
       }
     ],
     "withUser.jsx": [

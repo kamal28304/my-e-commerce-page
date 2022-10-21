@@ -1,3 +1,4 @@
+
 import React,{memo} from "react"
 import Product from "./Product"
 import Links from "./Links"
@@ -17,7 +18,6 @@ function ProductList({ products }) {
         <span className="w-72"></span>
 
       </div>
-      <Links />
     </div>
   );
 }

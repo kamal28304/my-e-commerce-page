@@ -1,83 +1,48 @@
-import React,{useState,useEffect} from "react"
+import React, { useState } from "react"
 import { ImCross } from "react-icons/im"
 import Loading from "./Loading"
 
 
 
-function CartRow({ 
-  thumbnail, 
-  title, 
+function CartRow({
+  thumbnail,
+  title,
   price,
   quantity,
   productId,
   cart,
-  updateCart
-}){
- const 
-[localCart,setLocalCart]=useState(cart)
-  const [loading , setLoading]=useState(false)
+  updateCart,
+  onQuantityChange,
 
-  useEffect(function() {
-    setLocalCart(cart)
-  },[cart])
+}) {
+
+  const [loading, setLoading] = useState(false)
+
+  function handleChange(event) {
+    onQuantityChange(productId, +event.target.value)
+  }
 
   function handleRemove(event) {
     const productKey = event.currentTarget.getAttribute("productid");
-    
-    const newCart={...cart}
+    const newCart = { ...cart }
     delete newCart[productKey]
     updateCart(newCart);
     setLoading(true);
-    
+
   }
-  function handleChange(event) {
-    const newValue= +event.target.value;
-    const changedId= event.target.getAttribute("productid")
-    
-    const newLocalCart={...localCart,[changedId]:newValue}
-    setLocalCart(newLocalCart)
-    
-  }
-function updateMyCart(){
-  updateCart(localCart)
-}
   if (loading) {
     return <Loading />
   }
+
+
   return (
-    <div>
-      {/* <div className="hidden sm:block">
-
-        <div className="flex justify-between border border-gray-500 p-5">
-          <div className="flex">
-
-            <img className="w-16 h-16" src={thumbnail} />
-
-            <h1 className="whitespace-normal">{title}</h1>
-          </div>
-          <div className="w-10 text-center">
-            <h1>${price}</h1>
-          </div>
-          <div className="w-10 text-center">
-            <input className="w-12 border border-gray-200"
-value={quantity}
-              
-              type="number"
-              />
-          </div>
-          <div className="w-10 text-center">
-            <h1>subtotal</h1>
-          </div>
-
-        </div>
-      </div>
-     */ }
-
-      <div className="">
+    <>
+      <div className="sm:hidden">
         <div className="border border-gray-300 flex justify-end p-2">
-          <button productid= {productId} onClick={handleRemove}>
-          <ImCross className="text-3xl text-red-300" />
-            </button>
+          <button
+            productid={productId}
+            onClick={handleRemove}>
+            <ImCross className="text-3xl text-red-300" /></button>
 
         </div>
         <div className="border border-gray-300 p-2 flex justify-center">
@@ -95,20 +60,42 @@ value={quantity}
           <h1>Quantity:</h1>
           <input className="w-12 border border-gray-300"
             productid={productId}
-            value={localCart[productId]}
+            value={quantity}
             type="number"
             onChange={handleChange}
           />
         </div>
         <div className="border border-gray-300 flex justify-between p-2">
           <h1>Subtotal:</h1>
-          <h1> ${price*quantity}</h1>
+          <h1> ${price * quantity}</h1>
         </div>
       </div>
-  <button className="px-3 py-1 bg-red-500"
-    onClick={updateMyCart}
-    >update product</button>
-    </div>
+
+
+      {/* Responsive desktop view cart Row*/}
+      <div className="hidden sm:block">
+        <div className="flex items-center px-4 py-2 space-x-4 border border-gray-300 ">
+          <span className="flex items-center w-10 h-10">
+            <ImCross productid={productId} onClick={handleRemove} />
+          </span>
+          <div className="w-10 h-10">
+            <img className="object-cover w-full h-full" src={thumbnail} />
+          </div>
+          <h3 className="grow">{title}</h3>
+          <span className="w-20">${price}</span>
+          <div className="w-32">
+            <input
+              type="number"
+              className="w-12 p-1 mx-2 border border-gray-300 rounded-md"
+              productid={productId}
+              value={quantity}
+              onChange={handleChange}
+            />
+          </div>
+          <span className="w-20">${price * quantity}</span>
+        </div>
+      </div>
+    </>
   );
 }
 

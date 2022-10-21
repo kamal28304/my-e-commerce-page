@@ -3,59 +3,64 @@ import ProductList from "./ProductList";
 import { getProductList } from "./Api";
 import Loading from "./Loading";
 import NoMatching from "./NoMatching"
+import { Link,useSearchParams } from 'react-router-dom';
+import { range } from "lodash"
+import { HiArrowCircleRight } from "react-icons/hi";
 
 
 function ProductListPage() {
   const [loading, setLoading] = useState(true);
-  const [productlist, setProductlist] = useState([]);
-
+  const [productData, setProductData] = useState();
+  
+const [searchParams,setSearchParams]=useSearchParams()
+const params=Object.fromEntries([...searchParams])
+  let {query,sort,page}=params;
+  query=query||'';
+  sort=sort || 'default'
+  page = +page || 1;
+  
+function nextPageButton(){
+  page=page+1
+}
+  
   useEffect(function() {
-    const promise = getProductList();
-    promise.then(function(products) {
-      setProductlist(products);
-      setLoading(false);
-    }).catch(function() {
-      setLoading(false);
-    })
+   let sortType;
+   let sortBy;
 
-  }, []);
-  const [querry, setQuerry] = useState("");
-  const [sort, setSort] = useState("default");
+    if(sort==="title"){
+      sortBy="title"
+    }else if(sort==="priceLtH"){
+      sortBy="price"
+    }else if(sort==="priceHtL"){
+      sortBy="price"
+      sortType="desc"
+    }
+    getProductList(sortBy,query,page,sortType).then(
+      function(products) {
+    setProductData(products);
+      setLoading(false);
+    }).catch(()=>(setLoading(false)));
 
-  let data = productlist.filter(function(item) {
-    return item.title.toLowerCase().indexOf(querry.toLowerCase()) != -1;
-  })
-  function handleQuerry(event) {
-    setQuerry(event.target.value);
+  }, [sort,query,page]);
+  
+
+  
+  function handlequery(event) {
+    setSearchParams({...params,query:event.target.value,page:1},{replace:false});
   }
 
   function handleSort(event) {
-    setSort(event.target.value);
+    setSearchParams({...params,sort:event.target.value},{replace:false});
   }
 
-  if (sort === "title") {
-    data.sort(function(x, y) {
-      return x.title.toLowerCase() < y.title.toLowerCase() ? -1 : 1;
-    })
-  } else
-    if (sort === "priceLtH") {
-      data.sort(function(x, y) {
-        return x.price - y.price;
-      })
-    } else if (sort === "priceHtL") {
-      data.sort(function(x, y) {
-        return y.price - x.price;
-      })
-    }
+  
   if (loading) {
     return <Loading />;
   }
-  {/*if(!user){
-    return <Navigate to="/login" />
-  }*/}
+  
 
   return (
-    <div className="p-5 flex items-center justify-center">
+    <div className="p-10">
       <div className="p-2 bg-white max-w-6xl mx-auto  py-[50px] my-[60px] px-9 ">
 
         <div className="min-h-screen flex flex-col justify-center p-5 ">
@@ -65,8 +70,8 @@ function ProductListPage() {
               <input className="border border-gray-700 mb-2 rounded-md p-2"
                 type="search"
                 placeholder="🔍 search"
-                onChange={handleQuerry}
-                value={querry} />
+                onChange={handlequery}
+                value={query} />
             </div>
             <div>
               <select className="p-2 ml-2 mb-2 font-bold text-white font-mono bg-gray-500 rounded-md "
@@ -80,12 +85,28 @@ function ProductListPage() {
             </div>
           </div>
 
-          {data.length > 0 && (<ProductList products={data} />
-          )}
-
-          {data.length == 0 && (<NoMatching>No Matching Product Found.</NoMatching>)}
+          {productData.data.length > 0 && (<ProductList products={productData.data} />)}
+{productData.data.length ==0 && (<NoMatching>No Matching Product Found.</NoMatching>)}
         </div>
+
+       
+        <div className="flex space-x-2">
+                {range(1,productData.meta.last_page +1).map((pageNum)=> <Link
+    key={pageNum} className={"m-1 p-2 " + (pageNum === page ? "bg-red-500" : "bg-indigo-500")} to={"?" + new URLSearchParams({...params,page:pageNum})}>{pageNum}</Link>)}
+          
+         <button onClick= {nextPageButton}>➡️</button>
+        {/*  
+        <div>
+              {id > 1 && <Link className="text-3xl flex items-center"
+                to={"?page=" + (pageNum + 1)}><HiArrowCircleRight />next</Link> }
+            </div>
+           
+    
+     <Button onClick ={()=>setPage(2)}>2</Button>
+      <Button onClick ={()=>setPage(3)}>3</Button>*/}
       </div>
+      </div>
+      
     </div>
   );
 }
