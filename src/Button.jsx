@@ -5,7 +5,7 @@ function Button({ className, ...props }) {
 
     <div>
       <button {...props}
-        className={"px-5 py-1 bg-red-500 rounded-md text-white disabled:bg-red-100 " + className}>{props.children}
+        className={"px-4 py-2 bg-red-400 rounded-md text-white hover:bg-red-700 " + className}>{props.children}
       </button>
     </div>
   );

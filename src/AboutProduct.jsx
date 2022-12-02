@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { HiArrowCircleLeft, HiArrowCircleRight } from "react-icons/hi";
+import Button from "./Button";
 import { getProductData } from "./Api";
 import Loading from "./Loading";
 import NoFoundPage from "./NoFoundPage"
@@ -63,8 +64,8 @@ function AboutProduct({ onAddToCart }) {
                   onChange={handleCountChange}
                   value={count}
                   className="border rounded-sm bg-gray-200  px-3 border-inherit w-12 px-2" />
-                <button
-                  className="px-5 py-4 bg-red-500 rounded-md  text-white text-center ml-2 font-mono hover:bg-red-700" onClick={handleButtonClick}>ADD TO CART</button>
+                <Button
+                  className="px-5 py-4 bg-red-500 rounded-md  text-white text-center ml-2 font-mono hover:bg-red-700" onClick={handleButtonClick}>ADD TO CART</Button>
               </div>
             </div>
           </div>

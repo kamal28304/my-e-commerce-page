@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import { ImCross } from "react-icons/im"
+import Button from "./Button"
+import Input from "./Input"
 import Loading from "./Loading"
 
 
@@ -39,10 +41,10 @@ function CartRow({
     <>
       <div className="sm:hidden">
         <div className="border border-gray-300 flex justify-end p-2">
-          <button
+          <Button
             productid={productId}
             onClick={handleRemove}>
-            <ImCross className="text-3xl text-red-300" /></button>
+            <ImCross className="text-3xl text-red-300" /></Button>
 
         </div>
         <div className="border border-gray-300 p-2 flex justify-center">
@@ -58,7 +60,7 @@ function CartRow({
         </div>
         <div className="border border-gray-300 flex justify-between p-2">
           <h1>Quantity:</h1>
-          <input className="w-12 border border-gray-300"
+          <Input className="w-12 border border-gray-300"
             productid={productId}
             value={quantity}
             type="number"
@@ -84,7 +86,7 @@ function CartRow({
           <h3 className="grow">{title}</h3>
           <span className="w-20">${price}</span>
           <div className="w-32">
-            <input
+            <Input
               type="number"
               className="w-12 p-1 mx-2 border border-gray-300 rounded-md"
               productid={productId}
