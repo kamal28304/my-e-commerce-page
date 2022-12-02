@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ImCross } from "react-icons/im"
+import { HiXCircle } from "react-icons/hi"
 import Button from "./Button"
 import Input from "./Input"
 import Loading from "./Loading"
@@ -39,28 +39,27 @@ function CartRow({
 
   return (
     <>
-      <div className="sm:hidden">
+      <div className="sm:hidden my-5 shadow-lg">
         <div className="border border-gray-300 flex justify-end p-2">
-          <Button
-            productid={productId}
-            onClick={handleRemove}>
-            <ImCross className="text-3xl text-red-300" /></Button>
+          <span className="flex items-center w-10 h-10 text-4xl text-red-500">
+            <HiXCircle productid={productId} onClick={handleRemove} />
+          </span>
 
         </div>
         <div className="border border-gray-300 p-2 flex justify-center">
           <img className="h-16 w-16" src={thumbnail} />
         </div>
-        <div className="border border-gray-300 flex justify-between p-2">
-          <h1>Product:</h1>
-          <h1>{title}</h1>
+        <div className="border border-gray-300 flex justify-between p-2 ">
+          <h1 className="font-bold">Product:</h1>
+          <h1 className="text-red-400">{title}</h1>
         </div>
         <div className="border border-gray-300 flex justify-between p-2">
-          <h1>Price:</h1>
+          <h1 className="font-bold">Price:</h1>
           <h1>${price}</h1>
         </div>
         <div className="border border-gray-300 flex justify-between p-2">
-          <h1>Quantity:</h1>
-          <Input className="w-12 border border-gray-300"
+          <h1 className="font-bold">Quantity:</h1>
+          <Input className="w-12 h-5 border border-gray-300"
             productid={productId}
             value={quantity}
             type="number"
@@ -68,7 +67,7 @@ function CartRow({
           />
         </div>
         <div className="border border-gray-300 flex justify-between p-2">
-          <h1>Subtotal:</h1>
+          <h1 className="font-bold">Subtotal:</h1>
           <h1> ${price * quantity}</h1>
         </div>
       </div>
@@ -77,8 +76,8 @@ function CartRow({
       {/* Responsive desktop view cart Row*/}
       <div className="hidden sm:block">
         <div className="flex items-center px-4 py-2 space-x-4 border border-gray-300 ">
-          <span className="flex items-center w-10 h-10">
-            <ImCross productid={productId} onClick={handleRemove} />
+          <span className="flex items-center w-10 h-10 text-4xl text-red-500">
+            <HiXCircle productid={productId} onClick={handleRemove} />
           </span>
           <div className="w-10 h-10">
             <img className="object-cover w-full h-full" src={thumbnail} />

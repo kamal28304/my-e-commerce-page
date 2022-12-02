@@ -11,8 +11,10 @@ import Alert from "./Alert"
 
 
 
-function callLoginApi(values, bag) {
-  axios.post("https://myeasykart.codeyogi.io/login", {
+function callLoginApi(values, bag) 
+{ 
+  console.log("bag",bag)
+axios.post("https://myeasykart.codeyogi.io/login", {
     email: values.email,
     password: values.password,
   }).then((response) => {
@@ -52,12 +54,13 @@ export function Login({
   return (
     
        
-    <div className="p-3 h-screen overflow-scroll flex flex-col justify-center items-center ">
+    <div className="p-3 flex flex-col justify-center items-center ">
      <div className="my-10 w-full">
        { alert && <Alert /> }
      </div>
       
-      <form onSubmit={handleSubmit}
+      <form 
+        onSubmit={handleSubmit}
         className="bg-white p-4 shadow-md w-96 rounded-sm">
 
         <h1 className="text-2xl font-bold my-3 text-gray-700">Login</h1>

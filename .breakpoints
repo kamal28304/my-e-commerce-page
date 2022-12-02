@@ -24,13 +24,13 @@
       {
         "id": "ae874c57-f32d-482c-a132-b85da38ca5ec",
         "line": 3,
-        "version": 3464,
+        "version": 3713,
         "index": 98
       },
       {
         "id": "5a3c01c0-ddaf-4648-b246-5ca085ac53b6",
         "line": 4,
-        "version": 3464,
+        "version": 3713,
         "index": 139
       }
     ],
@@ -54,7 +54,7 @@
       {
         "id": "1349376c-6873-4f22-b942-81711d7e2b55",
         "line": 4,
-        "version": 8995,
+        "version": 9189,
         "index": 103
       }
     ],
@@ -69,36 +69,36 @@
     "src/CartPage.jsx": [
       {
         "id": "b0ab3bfe-416e-406a-8d6e-0e72e9cbd7c9",
-        "line": 35,
-        "version": 4416,
-        "index": 844
+        "line": 37,
+        "version": 4607,
+        "index": 926
       },
       {
         "id": "5425e53d-f4c1-4eab-a930-f1ee470b9897",
-        "line": 35,
-        "version": 4416,
-        "index": 844
+        "line": 37,
+        "version": 4607,
+        "index": 926
       }
     ],
     "src/CartRow.jsx": [
       {
         "id": "f8d5e9c2-66b5-4023-9bd7-8c1fb879cb4d",
-        "line": 7,
-        "version": 3720,
-        "index": 116
+        "line": 1,
+        "version": 4139,
+        "index": 0
       },
       {
         "id": "8e5a792e-c97f-4d89-9395-8d7ec5113388",
-        "line": 38,
-        "version": 3720,
-        "index": 644
+        "line": 1,
+        "version": 4139,
+        "index": 0
       }
     ],
     "src/Header.jsx": [
       {
         "id": "5df63528-f335-41af-9724-21811048b34b",
         "line": 6,
-        "version": 2074,
+        "version": 2113,
         "index": 215
       }
     ],
@@ -120,7 +120,7 @@
       {
         "id": "a875f11f-543f-42d7-bf78-29d74b4a0b6b",
         "line": 1,
-        "version": 206,
+        "version": 221,
         "index": 0
       }
     ],
@@ -128,51 +128,51 @@
       {
         "id": "160317c5-bd1a-4341-bac4-725b1294bd38",
         "line": 6,
-        "version": 2264,
-        "index": 131
+        "version": 2268,
+        "index": 133
       }
     ],
     "src/ProductListPage.jsx": [
       {
         "id": "ccf7a999-1297-4215-834b-47c0ff929eac",
         "line": 1,
-        "version": 4339,
+        "version": 5031,
         "index": 0
       },
       {
         "id": "02d1ff08-7944-4ae3-899d-1cde597c7fec",
         "line": 1,
-        "version": 4339,
+        "version": 5031,
         "index": 0
       },
       {
         "id": "fb24ec4e-87b7-4274-aa2c-36a5bc08f5d4",
         "line": 1,
-        "version": 4339,
+        "version": 5031,
         "index": 0
       },
       {
         "id": "183724a4-312e-4ba1-baf0-5878a67ad9c6",
         "line": 1,
-        "version": 4339,
+        "version": 5031,
         "index": 0
       },
       {
         "id": "68c264be-4381-46bc-a660-8b89f218c527",
         "line": 1,
-        "version": 4339,
+        "version": 5031,
         "index": 0
       },
       {
         "id": "e344337f-d17b-4eb9-ae08-d33f3768aafb",
         "line": 1,
-        "version": 4339,
+        "version": 5031,
         "index": 0
       },
       {
         "id": "e19a67f2-109d-428e-b23b-737b02c56afd",
         "line": 1,
-        "version": 4339,
+        "version": 5031,
         "index": 0
       }
     ],

@@ -1,4 +1,4 @@
-import React from "react"
+import React,{memo} from "react"
 import FormikHOC from "./FormikHOC"
 
  function Input({
@@ -35,4 +35,4 @@ import FormikHOC from "./FormikHOC"
 
 export const FormikInput = FormikHOC(Input)
 
-export default Input;
+export default memo(Input);

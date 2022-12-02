@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { HiArrowCircleLeft, HiArrowCircleRight } from "react-icons/hi";
@@ -7,9 +7,14 @@ import { getProductData } from "./Api";
 import Loading from "./Loading";
 import NoFoundPage from "./NoFoundPage"
 import {withCart} from "./withProvider"
+import { render } from "react-dom";
 
 
-function AboutProduct({ handleAddToCart }) {
+class AboutProduct extends Component {
+
+  constructer(props){
+    super(props)
+  }
   const id = +useParams().id;
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState();
@@ -26,10 +31,10 @@ function AboutProduct({ handleAddToCart }) {
       setLoading(false);
     })
   }, [id]);
-  function handleCountChange(event) {
+this.handleCountChange(event) {
     setCount(+event.target.value)
   }
-  function handleButtonClick() {
+handleButtonClick() {
     handleAddToCart(id, count);
     setCount(1)
   }
@@ -40,6 +45,8 @@ function AboutProduct({ handleAddToCart }) {
   if (!product) {
     return <NoFoundPage />
   }
+
+render():React.ReactNode{
   return product ? (
     <>
       <div className="flex items-center justify-center h-full">
@@ -86,5 +93,6 @@ function AboutProduct({ handleAddToCart }) {
       </div>
     </>
   ) : <Loading />
+}
 }
 export default withCart(AboutProduct);

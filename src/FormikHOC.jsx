@@ -4,7 +4,8 @@ import { useField } from "formik";
 
 function FormikHOC(Input) {
   function OutgoingComponent(
-    { name,
+    {
+      name,
      id,
     label,
      className,

@@ -1,16 +1,18 @@
 import React from "react";
+import Button from "./Button"
+import Input from "./Input";
 
 function CartFooter({updateCart}) {
 
 return (
     <div className="sm:flex justify-between border border-gray-500 p-3 rounded-b-md">
-      <div className="flex flex-col sm:flex-row">
-        <input placeholder="Coupen Code"
-          className="border" />
-        <button className="px-3 py-1 bg-red-500 text-white text-center sm:ml-2 my-2 sm:my-0">APPLY COUPON</button>
+      <div className="flex space-x-4">
+        <Input placeholder="Coupen Code"
+          className="border w-32 sm:w-full " />
+        <Button className="px-3 py-3 bg-red-500 text-white text-center ">APPLY COUPON</Button>
       </div>
 
-      <button className="px-3 py-1 bg-red-500 text-white text-center my-2 sm:my-0" onClick={updateCart}>Update Cart</button>
+      <Button className=" py-4 bg-red-500 text-white text-center my-2 sm:my-0 w-full" onClick={updateCart}>Update Cart</Button>
     </div>
   );
 }

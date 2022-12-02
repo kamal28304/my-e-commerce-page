@@ -4,11 +4,13 @@ import Loading from "./Loading"
 import { getProductByIds } from "./Api";
 import { Link } from "react-router-dom";
 import CartTotal from "./CartTotal"
+import {withCart} from "./withProvider"
 
 
 
-function CartPage({ cart ,setCart}) {
-  
+
+function CartPage({ cart ,updateCart}) {
+  console.log("cart",cart)
   const [cartList, setCartList] = useState([])
   const [loading, setLoading] = useState(true);
 
@@ -26,8 +28,8 @@ getProductByIds(ProductIds).then((responses)=> {
   }
   return (
     
-<div className="bg-white px-16 py-20 max-w-6xl mt-20">
-        <CartList products={cartList} cart={cart} updateCart={setCart} />
+<div className="bg-white sm:px-16 sm:py-20 max-w-6xl  p-3 mt-20">
+        <CartList products={cartList} cart={cart} updateCart={updateCart} />
 
          <div className="mt-10 self-end"> 
            <CartTotal />
@@ -41,4 +43,4 @@ getProductByIds(ProductIds).then((responses)=> {
 }
 
 
-export default CartPage;
+export default withCart(CartPage);

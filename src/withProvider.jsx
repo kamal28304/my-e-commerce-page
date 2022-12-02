@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import {UserContext,AlertContext} from "./Contexts"
+import {UserContext,AlertContext,CartContext} from "./Contexts"
 
 
 const withProvider=(provider)=>(IncomingComponent)=>(props)=>{
@@ -12,4 +12,5 @@ export default withProvider;
 
 export const withUser=withProvider(UserContext)
 export const withAlert=withProvider(AlertContext)
+export const withCart=withProvider(CartContext)
 

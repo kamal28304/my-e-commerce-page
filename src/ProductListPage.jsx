@@ -5,24 +5,24 @@ import Loading from "./Loading";
 import NoMatching from "./NoMatching"
 import { Link,useSearchParams } from 'react-router-dom';
 import { range } from "lodash"
-import { HiArrowCircleRight } from "react-icons/hi";
+import Input from "./Input"
+import { HiArrowCircleRight,HiArrowCircleLeft } from "react-icons/hi";
 
 
 function ProductListPage() {
   const [loading, setLoading] = useState(true);
   const [productData, setProductData] = useState();
   
-const [searchParams,setSearchParams]=useSearchParams()
+  const [searchParams,setSearchParams]=useSearchParams()
 const params=Object.fromEntries([...searchParams])
   let {query,sort,page}=params;
   query=query||'';
   sort=sort || 'default'
   page = +page || 1;
-  
-function nextPageButton(){
-  page=page+1
-}
-  
+
+  // nextPage() {
+//setSearchParams({page:page+1});
+ // }
   useEffect(function() {
    let sortType;
    let sortBy;
@@ -38,6 +38,7 @@ function nextPageButton(){
     getProductList(sortBy,query,page,sortType).then(
       function(products) {
     setProductData(products);
+        console.log(products)
       setLoading(false);
     }).catch(()=>(setLoading(false)));
 
@@ -60,21 +61,21 @@ function nextPageButton(){
   
 
   return (
-    <div className="p-10">
+    
       <div className="p-2 bg-white max-w-6xl mx-auto  py-[50px] my-[60px] px-9 ">
 
-        <div className="min-h-screen flex flex-col justify-center p-5 ">
+        <div className="flex flex-col justify-center p-5 ">
 
-          <div className="sm:flex-row flex flex-col items-end  sm:justify-between">
+          <div className="sm:flex-row flex flex-col sm:justify-between">
             <div>
-              <input className="border border-gray-700 mb-2 rounded-md p-2"
+              <Input className="border border-gray-700 mb-2 rounded-md p-2"
                 type="search"
                 placeholder="🔍 search"
                 onChange={handlequery}
                 value={query} />
             </div>
             <div>
-              <select className="p-2 ml-2 mb-2 font-bold text-white font-mono bg-gray-500 rounded-md "
+              <select className="p-2 font-bold text-white font-mono bg-gray-500 rounded-md"
                 value={sort}
                 onChange={handleSort}>
                 <option value="default">Default sorting</option>
@@ -91,23 +92,15 @@ function nextPageButton(){
 
        
         <div className="flex space-x-2">
+          {page>1&& <button onClick={()=>{setSearchParams({page:page-1})} } className="text-4xl text-green"><HiArrowCircleLeft/></button>}
                 {range(1,productData.meta.last_page +1).map((pageNum)=> <Link
     key={pageNum} className={"m-1 p-2 " + (pageNum === page ? "bg-red-500" : "bg-indigo-500")} to={"?" + new URLSearchParams({...params,page:pageNum})}>{pageNum}</Link>)}
           
-         <button onClick= {nextPageButton}>➡️</button>
-        {/*  
-        <div>
-              {id > 1 && <Link className="text-3xl flex items-center"
-                to={"?page=" + (pageNum + 1)}><HiArrowCircleRight />next</Link> }
-            </div>
-           
+          {page<productData.meta.last_page && <button onClick={()=>{setSearchParams({page:page+1})} } className="text-4xl text-green"><HiArrowCircleRight/></button>}
     
-     <Button onClick ={()=>setPage(2)}>2</Button>
-      <Button onClick ={()=>setPage(3)}>3</Button>*/}
       </div>
       </div>
       
-    </div>
   );
 }
 export default ProductListPage;

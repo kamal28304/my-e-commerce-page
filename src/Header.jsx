@@ -3,8 +3,8 @@ import { HiShoppingBag } from "react-icons/hi"
 import { Link } from "react-router-dom"
 import { GiHamburgerMenu } from "react-icons/gi"
 import MobileMenu from "./MobileMenu"
-import {withUser} from "./withProvider"
-function Header({ productCount ,user}) {
+import {withUser,withCart} from "./withProvider"
+function Header({ totalCount ,user}) {
  const [isMenuOpen, setMenuOpen] = useState(false);
 
   function clickMenuOpen() {
@@ -27,7 +27,7 @@ function Header({ productCount ,user}) {
         {user && <div className="flex flex-col items-center">
           { !isMenuOpen &&<Link to="/CartPage"
             className="flex items-center justify-center text-5xl text-gray-500 hover:bg-gray-700"> <HiShoppingBag /></Link>}
-          <span className="-m-7 text-white">{productCount}</span>
+          <span className="-m-7 text-white">{+totalCount}</span>
 
 
         </div>}
@@ -36,4 +36,4 @@ function Header({ productCount ,user}) {
     </div>
   )
 }
-export default withUser(Header);
+export default withCart(withUser(Header));

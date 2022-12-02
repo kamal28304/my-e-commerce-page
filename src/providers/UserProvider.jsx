@@ -8,9 +8,11 @@ function UserProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   const token = localStorage.getItem("token")
+ 
   useEffect(() => {
     if (token) {
-      axios.get("https://myeasykart.codeyogi.io/me", { headers: { Authorization: token, } })
+      axios.get("https://myeasykart.codeyogi.io/me", { 
+        headers: { Authorization: token, } })
         .then((response) => {
           setUser(response.data)
           setLoading(false)
